@@ -1,16 +1,48 @@
-import Image from "next/image";
+"use client";
 
-export const Card = () => {
+import { usePagination } from "../states/usePagination";
+
+import { Pagination } from "../common/Pagination";
+import { CardComponent } from "./Card";
+
+import "@/ui/css/card.css";
+
+export const Card = ({ projects }) => {
+  const page = usePagination((state) => state.page);
+  const updatePage = usePagination((state) => state.updatePage);
+
+  const itemsToShow = 10;
+  const startIndex = page * itemsToShow;
+  const endIndex = startIndex + itemsToShow;
+  const projectsLength = projects.length;
+
+  const buttonToShow = Math.floor(projectsLength / itemsToShow);
+  const projectsToShow = projects.slice(startIndex, endIndex);
+
   return (
     <>
-      <Image className="dataImage" alt="This is some image" src={spyBeeLogo} />
-      <div className="dataTitleContainer">
-        <h3 className="dataTitle">{mockData[0].title}</h3>
-        <p className="dataSub">
-          {dateFormat(mockData[0].lastVisit)}{" "}
-          <span>{dateFormat(mockData[0].lastUpdated)}</span>
-        </p>
-      </div>
+      <section className="cardSection">
+        {/* Card Component */}
+
+        <div className="cardContainer">
+          {projectsToShow.map((project) => (
+            <CardComponent project={project} key={project._id} />
+          ))}
+        </div>
+
+        {/* Pagination */}
+        <div className="">
+          <ul className="paginationContainer">
+            {Array.from({ length: buttonToShow }).map((_, index) => (
+              <Pagination
+                key={index}
+                updatePageFunction={() => updatePage(index)}
+                value={index + 1}
+              />
+            ))}
+          </ul>
+        </div>
+      </section>
     </>
   );
 };

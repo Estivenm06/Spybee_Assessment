@@ -1,0 +1,70 @@
+.cardSection {
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: auto;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.singlecardContainer {
+    width: 300px;
+    height: 200px;
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.singlecardContainer:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    transform: translateY(-2px);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.cardTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.cardTitle > p {
+    margin-left: 0.1rem;
+}
+
+.cardPlan {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+
+}
+
+.cardTeam {
+    padding-bottom: 0.5rem;
+}
+
+.divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 8px 0;
+}

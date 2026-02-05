@@ -1,9 +1,9 @@
 export const Item = ({ number, type }) => {
   return (
     <li className="tableLi">
-      <p className="tableP">
+      <p className="metricNumber">
         {number}
-        <span className="tableSpan">{type}</span>
+        <span className="metricLabel">{type}</span>
       </p>{" "}
     </li>
   );

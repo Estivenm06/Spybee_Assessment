@@ -1,16 +1,12 @@
 "use client";
-import { create } from "zustand";
+
+import { usePagination } from "../states/usePagination";
 
 import { HeaderTable } from "./HeaderTable";
 import { BodyTable } from "./BodyTable";
 import { Pagination } from "../common/Pagination";
 
 import "@/ui/css/table.css";
-
-const usePagination = create((set) => ({
-  page: 0,
-  updatePage: (page) => set(() => ({ page: page })),
-}));
 
 export const Table = ({ projects }) => {
   const page = usePagination((state) => state.page);
@@ -34,10 +30,17 @@ export const Table = ({ projects }) => {
             ))}
           </tbody>
         </table>
+
+        {/* Pagination */}
+
         <div>
           <ul className="paginationContainer">
             {Array.from({ length: buttonToShow }).map((_, index) => (
-              <Pagination key={index} updatePageFunction={() => updatePage(index)} value={index + 1} />
+              <Pagination
+                key={index}
+                updatePageFunction={() => updatePage(index)}
+                value={index + 1}
+              />
             ))}
           </ul>
         </div>

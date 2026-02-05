@@ -1,20 +1,9 @@
-import Image from "next/image";
-
 import { AvatarGroup } from "@/ui/common/avatar";
 import { Item } from "@/ui/common/items";
 import { Plan } from "@/ui/common/Plan";
 import { Status } from "@/ui/common/Status";
 
-const dateFormat = (dateString) => {
-  const options = { year: "numeric", month: "short", day: "2-digit" };
-  return new Date(dateString).toLocaleDateString("es-ES", options);
-};
-
-const teamFormat = (users) => {
-  return users.map(
-    ({ name, lastName }) => name.substring(0, 1) + lastName.substring(0, 1),
-  );
-};
+import { dateFormat, teamFormat } from "../utils/utils";
 
 const BodyTable = ({ project }) => {
   const {
