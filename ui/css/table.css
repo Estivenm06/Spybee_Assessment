@@ -1,13 +1,13 @@
 /* Table */
 
-table {
+.tableContainer {
   width: 100%;
   border-collapse: collapse;
 }
 
 thead {
-  color: #3c3c3b;
   font-weight: lighter;
+  background-color: #f5f5f5 !important;
 }
 
 tr,
@@ -19,24 +19,9 @@ th {
   color: #3c3c3b;
 }
 
-tr :nth-child(1) {
-}
-
-tr :nth-child(2) {
-}
-
-tr :nth-child(3) {
-}
-
-tr :nth-child(4) {
-}
-
-tr :nth-child(5) {
-}
-
 .row {
   background-color: #fff;
-  border-bottom: #ebebf0 1rem solid;
+  border-bottom: #ebebf0 0.1rem solid;
 }
 
 .row,
@@ -51,6 +36,23 @@ td {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
+}
+
+.dataPlan {
+  width: 10%;
+}
+
+.dataStatus {
+  width: 25%;
+}
+
+.dataTeam {
+  width: 20%;
+}
+
+.dataItems {
+  width: 25%;
 }
 
 .dataImage {
@@ -84,6 +86,8 @@ td {
   padding: 5px 10px;
   border-radius: 5em;
   font-weight: bold;
+  text-align: center;
+  width: fit-content;
 }
 
 .planDataPremium {
@@ -92,6 +96,8 @@ td {
   padding: 5px 10px;
   border-radius: 5em;
   font-weight: bold;
+  text-align: center;
+  width: fit-content;
 }
 
 .planDataAdvanced {
@@ -100,6 +106,8 @@ td {
   padding: 5px 10px;
   border-radius: 5em;
   font-weight: bold;
+  width: fit-content;
+  text-align: center;
 }
 
 .statusActive {
@@ -108,6 +116,29 @@ td {
   padding: 5px 10px;
   border-radius: 5em;
   font-weight: bold;
+  width: fit-content;
+  text-align: center;
+  width: fit-content;
+}
+
+.statusInactive {
+  color: #fffefb;
+  background-color: #fac30f;
+  padding: 5px 10px;
+  border-radius: 5em;
+  font-weight: bold;
+  width: fit-content;
+  text-align: center;
+}
+
+.statusPended {
+  color: #f0f0f0;
+  background-color: #bebebe;
+  padding: 5px 10px;
+  border-radius: 5em;
+  font-weight: bold;
+  width: fit-content;
+  text-align: center;
 }
 
 .statusSuspended {
@@ -116,6 +147,8 @@ td {
   padding: 5px 10px;
   border-radius: 5em;
   font-weight: bold;
+  width: fit-content;
+  text-align: center;
 }
 
 .avatarContainer {
@@ -123,42 +156,42 @@ td {
   flex: 1;
 }
 
-.avatar {
-  color: black;
-  padding: 10px 5px;
+.hex-wrapper {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  font-weight: bold;
-  width: 2rem;
-  text-align: start;
-  border: 1px solid #ffff;
+  padding: 5px;
+  box-sizing: border-box;
+  height: 2.2rem;
+  width: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.avatar:nth-child(9n + 1) {
+.avatar {
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: bolder;
+}
+
+.hex-wrapper:not(:first-child) {
+  margin-left: -6px;
+}
+
+.hex-wrapper:nth-child(5n + 1) {
   background: #fff5d7;
 }
-.avatar:nth-child(9n + 2) {
+
+.hex-wrapper:nth-child(5n + 2) {
   background: #ffebaf;
 }
-.avatar:nth-child(9n + 3) {
+.hex-wrapper:nth-child(5n + 3) {
   background: #fad75f;
 }
-.avatar:nth-child(9n + 4) {
+.hex-wrapper:nth-child(5n + 4) {
   background: #fac30f;
 }
-.avatar:nth-child(9n + 5) {
+.hex-wrapper:nth-child(5n) {
   background: #ebb400;
-}
-.avatar:nth-child(9n + 6) {
-  background: #fff5d7;
-}
-.avatar:nth-child(9n + 7) {
-  background: #ffebaf;
-}
-.avatar:nth-child(9n + 8) {
-  background: #fad75f;
-}
-.avatar:nth-child(9n) {
-  background: #fac30f;
 }
 
 .tableItems {
@@ -178,4 +211,31 @@ td {
 .tableSpan {
   font-weight: lighter;
   color: #7a7a7a;
+}
+
+/* Pagination Stles */
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  margin: auto;
+  background-color: #fff;
+  padding: 1rem 0;
+}
+
+.paginationLI {
+  list-style: none;
+}
+
+.paginationBtn {
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  color: #3c3c3b;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }

@@ -9,5 +9,9 @@ export const Plan = ({ planName }) => {
       return (
         <PlanComponent planName={"Avanzado"} planClass={"planDataAdvanced"} />
       );
+    case "small":
+      return (
+        <PlanComponent planName={"Pequeño"} planClass={"planDataSmall"} />
+      );
   }
 };
