@@ -1,0 +1,181 @@
+/* Table */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  color: #3c3c3b;
+  font-weight: lighter;
+}
+
+tr,
+th {
+  padding-bottom: 10px;
+  padding-left: 10px;
+  text-align: start;
+  font-size: 14px;
+  color: #3c3c3b;
+}
+
+tr :nth-child(1) {
+}
+
+tr :nth-child(2) {
+}
+
+tr :nth-child(3) {
+}
+
+tr :nth-child(4) {
+}
+
+tr :nth-child(5) {
+}
+
+.row {
+  background-color: #fff;
+  border-bottom: #ebebf0 1rem solid;
+}
+
+.row,
+td {
+  vertical-align: middle;
+  padding: 20px 30px;
+  font-size: 13px;
+}
+
+.dataProject {
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dataImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  object-fit: scale-down;
+}
+
+.dataTitleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dataTitle {
+  font-size: 15px;
+  color: #3c3c3b;
+}
+
+.dataSub {
+  display: flex;
+  font-size: 11px;
+  gap: 5px;
+  color: #7a7a7a;
+}
+
+.planDataSmall {
+  color: #fff;
+  background-color: #c35a00;
+  padding: 5px 10px;
+  border-radius: 5em;
+  font-weight: bold;
+}
+
+.planDataPremium {
+  color: #524c3d;
+  background-color: #ebb400;
+  padding: 5px 10px;
+  border-radius: 5em;
+  font-weight: bold;
+}
+
+.planDataAdvanced {
+  color: #fff;
+  background-color: #7d7d7d;
+  padding: 5px 10px;
+  border-radius: 5em;
+  font-weight: bold;
+}
+
+.statusActive {
+  color: #3b9755;
+  background-color: #dcf0dc;
+  padding: 5px 10px;
+  border-radius: 5em;
+  font-weight: bold;
+}
+
+.statusSuspended {
+  color: #ffd6dd;
+  background-color: #d90429;
+  padding: 5px 10px;
+  border-radius: 5em;
+  font-weight: bold;
+}
+
+.avatarContainer {
+  display: flex;
+  flex: 1;
+}
+
+.avatar {
+  color: black;
+  padding: 10px 5px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  font-weight: bold;
+  width: 2rem;
+  text-align: start;
+  border: 1px solid #ffff;
+}
+
+.avatar:nth-child(9n + 1) {
+  background: #fff5d7;
+}
+.avatar:nth-child(9n + 2) {
+  background: #ffebaf;
+}
+.avatar:nth-child(9n + 3) {
+  background: #fad75f;
+}
+.avatar:nth-child(9n + 4) {
+  background: #fac30f;
+}
+.avatar:nth-child(9n + 5) {
+  background: #ebb400;
+}
+.avatar:nth-child(9n + 6) {
+  background: #fff5d7;
+}
+.avatar:nth-child(9n + 7) {
+  background: #ffebaf;
+}
+.avatar:nth-child(9n + 8) {
+  background: #fad75f;
+}
+.avatar:nth-child(9n) {
+  background: #fac30f;
+}
+
+.tableItems {
+  margin: 0;
+  padding: 0 0 0 15px;
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.tableP {
+  display: flex;
+  flex-direction: column;
+  font-weight: bolder;
+}
+
+.tableSpan {
+  font-weight: lighter;
+  color: #7a7a7a;
+}

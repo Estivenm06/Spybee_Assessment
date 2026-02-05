@@ -18,8 +18,8 @@ body {
 }
 
 header {
-  color: white;
-  background-color: #3C3C3B;
+  color: #fff;
+  background-color: #3c3c3c;
   padding-block: 20px;
   padding-inline: 30px;
   z-index: 1000;
@@ -29,9 +29,15 @@ header {
   align-items: center;
 }
 
+.spybeeLogo {
+  width: 150px;
+  height: 50px;
+  object-fit: cover;
+}
+
 .subheader {
   margin: 10px 0;
-  color: #3C3C3B;
+  color: #3c3c3b;
   display: flex;
   justify-content: space-between;
   margin-block: 20px;
@@ -69,11 +75,11 @@ main {
 }
 
 .createProjectBtn {
-  background-color: #FFC200;
+  background-color: #ffc200;
   border: none;
   padding: 5px 15px;
   border-radius: 5px;
-  color: #3C3C3B;
+  color: #3c3c3b;
   align-items: center;
   display: flex;
   gap: 8px;
@@ -85,15 +91,15 @@ main {
 }
 
 .seekerContainer {
-  background-color: white;
+  background-color: #fff;
   position: relative;
   width: 250px;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 .seekerContainer input {
   width: 100%;
-  padding: 10px 60px 10px 10px;
+  padding: 10px 60px 10px 5px;
   display: block;
   border: #ffdb66 2px solid;
   font-size: 15px;
@@ -106,7 +112,6 @@ main {
   cursor: pointer;
   display: inline-block;
   position: absolute;
-  font-weight: lighter;
   right: 0;
   top: 0;
   z-index: 2;
@@ -120,7 +125,7 @@ main {
 
 .filterBtn {
   border: none;
-  background-color: white;
+  background-color: #fff;
   padding: 8px;
   border-radius: 5px;
 }
@@ -134,12 +139,11 @@ main {
 
 .actionsUL li {
   list-style: none;
-  
 }
 
 .listBtn {
   border: none;
-  background-color: white;
+  background-color: #fff;
   padding: 8px;
   border-start-start-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -149,14 +153,14 @@ main {
 
 .appBtn {
   border: none;
-  background-color: white;
+  background-color: #fff;
   padding: 8px;
   border: #adadad 1.5px solid;
 }
 
 .mapBtn {
   border: none;
-  background-color: white;
+  background-color: #fff;
   padding: 8px;
   border-start-end-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -164,57 +168,78 @@ main {
   border-block: #adadad 1.5px solid;
 }
 
-/* Table */
+/*
+MEDIA QUERIES
+*/
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+@media screen and (max-width: 875px) {
+  .spybeeLogo {
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+  }
+  .subtitle {
+    font-size: 1.3rem;
+  }
+  .subcounter {
+    font-size: 0.7rem;
+    padding: 2px 5px;
+  }
+  .subtitleContainer {
+    gap: 5px;
+  }
+  .optionsContainer {
+    gap: 5px;
+  }
+  .seekerContainer {
+    width: 110px;
+  }
+  .seekerContainer input {
+    font-size: 0.8rem;
+  }
+  .seekerContainer button {
+    padding: 13px 10px;
+  }
 }
 
-thead {
-  color: #3C3C3B;
-  font-weight: lighter;
+@media screen and (max-width: 580px) {
+  .spybeeLogo {
+    width: 100px;
+    height: 40px;
+    object-fit: cover;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .subcounter {
+    font-size: 0.6rem;
+  }
+  .seekerContainer {
+    width: 100px;
+  }
+  .seekerContainer input {
+    font-size: 0.6rem;
+  }
+  .seekerContainer button {
+    padding: 10px 10px;
+  }
 }
 
-tr :nth-child(1) {
-  width: 20%;
-  text-align: start;
-}
-
-tr :nth-child(2) {
-  width: 10%;
-  text-align: start;
-}
-
-tr :nth-child(3) {
-  width: 20%;
-  text-align: start;
-}
-
-tr :nth-child(4) {
-  width: 20%;
-  text-align: start;
-}
-
-tr, th:nth-child(5) {
-  width: 100%;
-  text-align: start;
-}
-
-.item {
-  background-color: white;
-  padding-block: 10px;
-  height: 70px;
-}
-
-.item, td {
-  vertical-align: middle;
-  padding: 0.5em;
-}
-
-.tableUL {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  gap: 100px;
+@media screen and (max-width: 525px) {
+  .subheader {
+    gap: 10px;
+  }
+  .subtitleContainer {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+  }
+  .optionsContainer {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+  }
 }
