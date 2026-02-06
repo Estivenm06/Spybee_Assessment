@@ -2,7 +2,6 @@
 import styles from "@/ui/css/card.module.css";
 
 const PlanComponent = ({ planName, planClass }) => {
-  console.log(planClass);
   return <p className={planClass}>{planName}</p>;
 };
 

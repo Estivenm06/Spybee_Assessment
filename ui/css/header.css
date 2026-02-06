@@ -1,0 +1,17 @@
+header {
+  color: #fff;
+  background-color: #3c3c3c;
+  padding-block: 20px;
+  padding-inline: 30px;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spybeeLogo {
+  width: 150px;
+  height: 50px;
+  object-fit: cover;
+}

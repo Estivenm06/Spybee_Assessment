@@ -1,0 +1,132 @@
+.subheader {
+  margin: 10px 0;
+  color: #3c3c3b;
+  display: flex;
+  justify-content: space-between;
+  margin-block: 20px;
+  margin-inline: 30px;
+  flex-wrap: wrap;
+}
+
+main {
+  margin-block: 20px;
+  margin-inline: 30px;
+}
+
+.subtitleContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: xx-large;
+}
+
+.subcounter {
+  font-size: small;
+  background-color: #bdbdbd;
+  padding: 5px 8px;
+  border-radius: 20px;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.createProjectBtn {
+  background-color: #ffc200;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: #3c3c3b;
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  font-size: 20px;
+}
+
+.createProjectBtn span {
+  font-size: 25px;
+}
+
+.seekerContainer {
+  background-color: #fff;
+  position: relative;
+  width: 250px;
+  border-radius: 5px;
+}
+
+.seekerContainer input {
+  width: 100%;
+  padding: 10px 60px 10px 5px;
+  display: block;
+  border: #ffdb66 2px solid;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.seekerContainer button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  padding: 15px 15px;
+}
+
+.actionsContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.filterBtn {
+  border: none;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.actionsUL {
+  display: flex;
+}
+
+.actionsUL li {
+  list-style: none;
+}
+
+.filterButton {
+  border: none;
+  padding: 8px;
+  background-color: #fff;
+  border: #adadad 1.5px solid;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+
+.filterButton:not([disabled]):hover {
+    transform: translateY(-1px) ;
+}
+
+.filterButton:disabled {
+  border: none;
+  background-color: #f0f0f0;
+  padding: 8px;
+  border: #adadad 1.5px solid;
+}
+
+.actionsUL > li:first-child .filterButton {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.actionsUL > li:last-child .filterButton {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
