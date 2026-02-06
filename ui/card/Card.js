@@ -22,16 +22,18 @@ export const CardComponent = ({ project }) => {
           </p>
         </div>
         <div className="cardPlan">
-          <Plan planName={project.projectPlanData.plan} mobile />
-          <Status projectStatus={project.status} mobile />
+          <div>
+            <Plan planName={project.projectPlanData.plan} mobile />
+          </div>
+          <div>
+            <Status projectStatus={project.status} mobile />
+          </div>
         </div>
       </div>
       <div className="divider" />
       <div className="cardBody">
-        <div>
-          <div className="avatarContainer">
-            <AvatarGroup team={team} truncate mobile />
-          </div>
+        <div className="avatarContainer">
+          <AvatarGroup team={team} truncate mobile />
         </div>
         <div>
           <ul className="tableItems">

@@ -5,8 +5,7 @@ import { usePagination } from "../states/usePagination";
 import { HeaderTable } from "./HeaderTable";
 import { BodyTable } from "./BodyTable";
 import { Pagination } from "../common/Pagination";
-
-import "@/ui/css/table.css";
+import { NoData } from "../common/noData";
 
 export const Table = ({ projects }) => {
   const page = usePagination((state) => state.page);
@@ -22,28 +21,31 @@ export const Table = ({ projects }) => {
   return (
     <>
       <section className="tableSection">
-        <table className="tableContainer">
-          <HeaderTable />
-          <tbody className="tableBody">
-            {projectsToShow.map((project) => (
-              <BodyTable project={project} key={project._id} />
-            ))}
-          </tbody>
-        </table>
-
-        {/* Pagination */}
-
-        <div>
-          <ul className="paginationContainer">
-            {Array.from({ length: buttonToShow }).map((_, index) => (
-              <Pagination
-                key={index}
-                updatePageFunction={() => updatePage(index)}
-                value={index + 1}
-              />
-            ))}
-          </ul>
-        </div>
+        {projectsLength == 0 && <NoData />}
+        {projectsLength !== 0 && (
+          <>
+            <table className="tableContainer">
+              <HeaderTable />
+              <tbody className="tableBody">
+                {projectsToShow.map((project) => (
+                  <BodyTable project={project} key={project._id} />
+                ))}
+              </tbody>
+            </table>
+            {/* Pagination */}
+            <div>
+              <ul className="paginationContainer">
+                {Array.from({ length: buttonToShow }).map((_, index) => (
+                  <Pagination
+                    key={index}
+                    updatePageFunction={() => updatePage(index)}
+                    value={index + 1}
+                  />
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
       </section>
     </>
   );

@@ -1,67 +1,43 @@
-import styles from "@/ui/css/card.module.css"
+const STATUS_STYLES = {
+  suspended: {
+    label: "Suspendido",
+    bg: "#d90429",
+    color: "#ffffff"
+  },
+  active: {
+    label: "Activo",
+    bg: "#dcf0dc",
+    color: "#3b9755"
 
-const StatusComponent = ({ statusClass, statusName }) => (
-  <p className={statusClass}>{statusName}</p>
-);
+  },
+  inactive: {
+    label: "Inactivo",
+    bg: "#fac30f",
+    color: "#fffefb"
+  },
+  pending_payment: {
+    label: "Pendiente",
+    bg: "#bebebe",
+    color: "#ffffff"
+  },
+};
+
+const StatusPill = ({ status, mobile }) => {
+  const { label, bg, color } = status;
+  return (
+    <p
+      className={mobile ? "statusMobile" : "status"}
+      style={{ backgroundColor: bg, color: color }}
+    >
+      {label}
+    </p>
+  );
+};
 
 export const Status = ({ projectStatus, mobile }) => {
-  switch (projectStatus) {
-    case "suspended":
-      if (!mobile) {
-        return (
-          <StatusComponent
-            statusClass={"statusSuspended"}
-            statusName={"Suspendido"}
-          />
-        );
-      }
-      return (
-        <StatusComponent
-          statusClass={styles.statusSuspendedMobile}
-          statusName={"Suspendido"}
-        />
-      );
-    case "active":
-      if (!mobile) {
-        return (
-          <StatusComponent statusClass={"statusActive"} statusName={"Activo"} />
-        );
-      }
-      return (
-        <StatusComponent
-          statusClass={styles.statusActiveMobile}
-          statusName={"Activo"}
-        />
-      );
-    case "inactive":
-      if (!mobile) {
-        return (
-          <StatusComponent
-            statusClass={"statusInactive"}
-            statusName={"Inactivo"}
-          />
-        );
-      }
-      return (
-        <StatusComponent
-          statusClass={styles.statusInactiveMobile}
-          statusName={"Inactivo"}
-        />
-      );
-    case "pending_payment":
-      if (!mobile) {
-        return (
-          <StatusComponent
-            statusClass={"statusPended"}
-            statusName={"Pendiente"}
-          />
-        );
-      }
-      return (
-        <StatusComponent
-          statusClass={styles.statusPendedMobile}
-          statusName={"Pendiente"}
-        />
-      );
-  }
+  const status = STATUS_STYLES[projectStatus];
+
+  if (!status) return null;
+
+  return <StatusPill status={status} mobile={mobile} />;
 };

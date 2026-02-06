@@ -11,32 +11,28 @@ import { useMediaQuery } from "@/ui/states/usemediaQuery";
 export default function Home() {
   const projects = useGetData((s) => s.projects);
   const { list, card, map } = useActions((s) => s.filters);
-  const notTable = useMediaQuery("(max-width: 931px)");
+  const isMobile = useMediaQuery("(max-width: 930px)");
 
-  if (map && notTable) {
-    return (
-      <>
-        <Map projects={projects} />
-        <Card projects={projects} />
-      </>
-    );
-  } else {
-    <>
-      <Map projects={projects} />
-      <Table projects={projects} />
-    </>;
-  }
+  const showMap = map;
+  const showTable = !isMobile && list;
+  const showCard = isMobile || card;
+
   return (
     <main>
-      {!map && notTable && <Card projects={projects} />}
-      {!notTable && list && <Table projects={projects} />}
-      {card && <Card projects={projects} />}
-      {map && (
+      {!isMobile && showMap && (
         <>
           <Map projects={projects} />
           <Table projects={projects} />
         </>
       )}
+      {isMobile && showMap && (
+        <>
+          <Map projects={projects} />
+          <Card projects={projects} />
+        </>
+      )}
+      {showTable && <Table projects={projects} />}
+      {showCard && !showMap && <Card projects={projects} />}
     </main>
   );
 }

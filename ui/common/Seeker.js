@@ -1,15 +1,31 @@
+"use client";
 import Image from "next/image";
-import Form from "next/form";
+
+import { useEffect, useState } from "react";
 
 import search from "@/public/search.svg";
+import { useGetData } from "../states/useData";
 
 export const Seeker = () => {
+  const [query, setQuery] = useState("");
+  const seeker = useGetData((s) => s.seeker);
+
+  useEffect(() => {
+    seeker(query);
+  }, [query, seeker]);
+
   return (
-    <Form action="/search">
-      <input placeholder="Buscar" className="input" />
+    <>
+      <input
+        placeholder="Buscar"
+        className="input"
+        type="text"
+        onChange={(e) => setQuery(e.target.value)}
+        value={query}
+      />
       <button type="submit">
         <Image src={search} width={15} height={15} alt="Search Icon" />
       </button>
-    </Form>
+    </>
   );
 };

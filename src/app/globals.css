@@ -1,6 +1,10 @@
 @import url("@/ui/css/header.css");
 @import url("@/ui/css/subheader.css");
 @import url("@/ui/css/map.css");
+@import url("@/ui/css/pagination.css");
+@import url("@/ui/css/noData.css");
+@import url("@/ui/css/card.css");
+@import url("@/ui/css/table.css");
 
 :root {
   --background: #F5F5F5;

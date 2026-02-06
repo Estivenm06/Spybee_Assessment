@@ -97,9 +97,8 @@ td {
   color: #7a7a7a;
 }
 
-.planDataSmall {
+.plan {
   color: #fff;
-  background-color: #c35a00;
   padding: 5px 10px;
   border-radius: 5em;
   font-weight: bold;
@@ -107,19 +106,17 @@ td {
   width: fit-content;
 }
 
-.planDataPremium {
-  color: #524c3d;
-  background-color: #ebb400;
-  padding: 5px 10px;
-  border-radius: 5em;
-  font-weight: bold;
-  text-align: center;
-  width: fit-content;
-}
-
-.planDataAdvanced {
+.planMobile {
   color: #fff;
-  background-color: #7d7d7d;
+  padding: 3px 6px;
+  border-radius: 5em;
+  font-weight: bold;
+  text-align: center;
+  width: fit-content;
+  font-size: small;
+}
+
+.status {
   padding: 5px 10px;
   border-radius: 5em;
   font-weight: bold;
@@ -127,44 +124,13 @@ td {
   text-align: center;
 }
 
-.statusActive {
-  color: #3b9755;
-  background-color: #dcf0dc;
-  padding: 5px 10px;
+.statusMobile {
+  padding: 3px 5px;
   border-radius: 5em;
   font-weight: bold;
-  width: fit-content;
   text-align: center;
-}
-
-.statusInactive {
-  color: #fffefb;
-  background-color: #fac30f;
-  padding: 5px 10px;
-  border-radius: 5em;
-  font-weight: bold;
   width: fit-content;
-  text-align: center;
-}
-
-.statusPended {
-  color: #f0f0f0;
-  background-color: #bebebe;
-  padding: 5px 10px;
-  border-radius: 5em;
-  font-weight: bold;
-  width: fit-content;
-  text-align: center;
-}
-
-.statusSuspended {
-  color: #ffffff;
-  background-color: #d90429;
-  padding: 5px 10px;
-  border-radius: 5em;
-  font-weight: bold;
-  width: fit-content;
-  text-align: center;
+  font-size: small;
 }
 
 .avatarContainer {
@@ -230,37 +196,4 @@ td {
   font-weight: lighter;
   font-size: 12px;
   color: #6b7280;
-}
-
-/* Pagination Stles */
-
-.paginationContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  gap: 0.5rem;
-  margin: auto;
-  background-color: #fff;
-  padding: 1rem 0;
-}
-
-.paginationLI {
-  list-style: none;
-}
-
-.paginationBtn {
-  background-color: #fff;
-  border: 1px solid #d3d3d3;
-  color: #3c3c3b;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: box-shadow .2s ease, transform .2s ease;
-}
-
-.paginationBtn:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
-    transform: translateY(-2px);
 }

@@ -1,0 +1,16 @@
+.noDataContainer {
+    text-align: center;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e4e4e4;
+    border-radius: 1rem;
+}
+
+.noDataText {
+    font-size: larger;
+    font-weight: bolder;
+    flex-wrap: wrap;
+    color: #3C3C3B;
+}

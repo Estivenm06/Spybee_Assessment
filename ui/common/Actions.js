@@ -7,15 +7,12 @@ import listIcon from "@/public/list.svg";
 import mapIcon from "@/public/map.svg";
 
 import { useActions } from "../states/useActions";
+import { useMediaQuery } from "../states/usemediaQuery";
 
 const ActionButton = ({ icon, alt, disabled, onClick }) => {
   return (
     <li>
-      <button
-        className="filterButton"
-        disabled={disabled}
-        onClick={onClick}
-      >
+      <button className="filterButton" disabled={disabled} onClick={onClick}>
         <Image src={icon} width={12} height={12} alt={alt} priority />
       </button>
     </li>
@@ -31,12 +28,17 @@ const ACTIONS = [
 export const Actions = () => {
   const filters = useActions((state) => state.filters);
   const setFilters = useActions((state) => state.setFilters);
+  const isMobile = useMediaQuery("(max-width: 930px)");
+
+  const disabled_on_mobile = "list";
 
   return (
     <div className="actions">
       <ul className="actionsUL">
         {ACTIONS.map((a) => {
-          const disabled = filters[a.name]
+          const isActive = !!filters[a.name];
+
+          let disabled = isMobile ? disabled_on_mobile == a.name : isActive;
 
           return (
             <ActionButton
@@ -46,7 +48,7 @@ export const Actions = () => {
               disabled={disabled}
               onClick={() => setFilters(a.name)}
             />
-          )
+          );
         })}
       </ul>
     </div>
