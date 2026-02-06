@@ -5,7 +5,7 @@ export const Filter = () => {
   return (
     <div className="filter">
       <button className="filterBtn">
-        <Image src={bars} width={12} height={12} alt="Bars Icon" />
+        <Image className="filterImage" src={bars} width={12} height={12} alt="Bars Icon" />
       </button>
     </div>
   );

@@ -25,60 +25,23 @@ body {
 MEDIA QUERIES
 */
 
-@media screen and (max-width: 875px) {
+@media screen and (max-width: 768px) {
   .spybeeLogo {
     width: 100px;
     height: 50px;
     object-fit: cover;
   }
-  .subtitle {
-    font-size: 1.3rem;
-  }
-  .subcounter {
-    font-size: 0.7rem;
-    padding: 2px 5px;
-  }
-  .subtitleContainer {
-    gap: 5px;
-  }
-  .optionsContainer {
-    gap: 5px;
-  }
-  .seekerContainer {
-    width: 110px;
-  }
-  .seekerContainer input {
-    font-size: 0.8rem;
-  }
-  .seekerContainer button {
-    padding: 13px 10px;
-  }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 481px) {
   .spybeeLogo {
     width: 100px;
     height: 40px;
     object-fit: cover;
   }
-  .subtitle {
-    font-size: 1rem;
-  }
-  .subcounter {
-    font-size: 0.6rem;
-  }
-  .seekerContainer {
-    width: 100px;
-  }
-  .seekerContainer input {
-    font-size: 0.6rem;
-  }
-  .seekerContainer button {
-    padding: 10px 10px;
-  }
 }
 
-@media screen and (max-width: 525px) {
+/* @media screen and (max-width: 525px) {
   .subheader {
     gap: 10px;
   }
@@ -95,4 +58,4 @@ MEDIA QUERIES
     margin: auto;
     width: 100%;
   }
-}
+} */

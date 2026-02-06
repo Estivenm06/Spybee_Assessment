@@ -8,53 +8,46 @@ import mapIcon from "@/public/map.svg";
 
 import { useActions } from "../states/useActions";
 
-const ActionButton = ({
-  actionSrc,
-  actionAlt,
-  disabled,
-  onClick,
-  name
-}) => {
+const ActionButton = ({ icon, alt, disabled, onClick }) => {
   return (
     <li>
-      <button name={name} className="filterButton" disabled={disabled} onClick={(ev) => onClick(ev.currentTarget.name)}>
-        <Image src={actionSrc} width={12} height={12} alt={actionAlt} preload />
+      <button
+        className="filterButton"
+        disabled={disabled}
+        onClick={onClick}
+      >
+        <Image src={icon} width={12} height={12} alt={alt} priority />
       </button>
     </li>
   );
 };
 
+const ACTIONS = [
+  { name: "list", alt: "List Icon", icon: listIcon },
+  { name: "card", alt: "Card Icon", icon: cardIcon },
+  { name: "map", alt: "Map Icon", icon: mapIcon },
+];
+
 export const Actions = () => {
-  const { list, card, map } = useActions((state) => state.filters);
-  const setFilters = useActions((state) => state.setFilters)
+  const filters = useActions((state) => state.filters);
+  const setFilters = useActions((state) => state.setFilters);
 
   return (
     <div className="actions">
       <ul className="actionsUL">
-        <ActionButton
-          actionAlt={"List Icon"}
-          actionClass={"listBtn"}
-          actionSrc={listIcon}
-          disabled={list}
-          name="list"
-          onClick={setFilters}
-          />
-        <ActionButton
-          actionAlt={"Card Icon"}
-          actionClass={"cardBtn"}
-          actionSrc={cardIcon}
-          disabled={card}
-          name="card"
-          onClick={setFilters}
-          />
-        <ActionButton
-          actionAlt={"Map Icon"}
-          actionClass={"mapBtn"}
-          actionSrc={mapIcon}
-          disabled={map}
-          name="map"
-          onClick={setFilters}
-        />
+        {ACTIONS.map((a) => {
+          const disabled = filters[a.name]
+
+          return (
+            <ActionButton
+              key={a.name}
+              icon={a.icon}
+              alt={a.alt}
+              disabled={disabled}
+              onClick={() => setFilters(a.name)}
+            />
+          )
+        })}
       </ul>
     </div>
   );

@@ -37,7 +37,7 @@ main {
   align-items: center;
 }
 
-.createProjectBtn {
+.createBtn {
   background-color: #ffc200;
   border: none;
   padding: 5px 15px;
@@ -49,7 +49,7 @@ main {
   font-size: 20px;
 }
 
-.createProjectBtn span {
+.createBtn span {
   font-size: 25px;
 }
 
@@ -107,11 +107,11 @@ main {
   background-color: #fff;
   border: #adadad 1.5px solid;
   cursor: pointer;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
 }
 
 .filterButton:not([disabled]):hover {
-    transform: translateY(-1px) ;
+  transform: translateY(-1px);
 }
 
 .filterButton:disabled {
@@ -122,11 +122,107 @@ main {
 }
 
 .actionsUL > li:first-child .filterButton {
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 
 .actionsUL > li:last-child .filterButton {
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+/* Media query */
+
+@media screen and (max-width: 979px) {
+  .seekerContainer {
+    width: 110px;
+  }
+  .seekerContainer input {
+    font-size: 0.8rem;
+  }
+  .seekerContainer button {
+    padding: 13px 10px;
+  }
+}
+
+@media screen and (max-width: 835px) {
+  .createBtn {
+    position: fixed;
+    border-radius: 100%;
+    bottom: 0;
+    right: 0;
+    margin: 1rem;
+    box-shadow: 0px 0px 2px 2px #f0f0f0;
+    z-index: 10;
+  }
+  .subtitle {
+    font-size: 1.3rem;
+  }
+  .subcounter {
+    font-size: 0.7rem;
+    padding: 2px 5px;
+  }
+  .subtitleContainer {
+    gap: 5px;
+  }
+  .optionsContainer {
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width: 537px) {
+  .subtitle {
+    font-size: 1.5rem;
+  }
+  .subcounter {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+    font-weight: bolder;
+  }
+  .optionsContainer {
+    width: 100%;
+  }
+  .actionsContainer {
+    width: 100%;
+    margin-block: 0.4rem;
+  }
+  .actions {
+    display: block;
+    width: 100%;
+  }
+  .actionsUL {
+    padding: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .filterButton {
+    width: 9.5rem;
+    height: 2.4rem;
+  }
+  .seekerContainer {
+    display: block;
+    width: 100%;
+  }
+  .seekerContainer input {
+    font-size: 1rem;
+  }
+  .seekerContainer button {
+    padding: 14px 15px;
+  }
+  .filter {
+    position: fixed;
+    bottom: 65;
+    right: 20;
+    z-index: 10;
+  }
+  .filterBtn {
+    padding: 0.7rem;
+    background-color: #f0f0f0;
+    box-shadow: 0px 1px 2px 0px #bdbdbd;
+  }
+  .filterImage {
+    width: 1rem;
+    height: 1rem;
+  }
 }
