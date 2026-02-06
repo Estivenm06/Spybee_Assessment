@@ -12,7 +12,7 @@ import { useMediaQuery } from "../states/usemediaQuery";
 const ActionButton = ({ icon, alt, disabled, onClick }) => {
   return (
     <li>
-      <button className="filterButton" disabled={disabled} onClick={onClick}>
+      <button className="actionBtn" disabled={disabled} onClick={onClick}>
         <Image src={icon} width={12} height={12} alt={alt} priority />
       </button>
     </li>
@@ -26,8 +26,8 @@ const ACTIONS = [
 ];
 
 export const Actions = () => {
-  const filters = useActions((state) => state.filters);
-  const setFilters = useActions((state) => state.setFilters);
+  const actions = useActions((state) => state.actions);
+  const setActions = useActions((state) => state.setActions);
   const isMobile = useMediaQuery("(max-width: 930px)");
 
   const disabled_on_mobile = "list";
@@ -36,7 +36,7 @@ export const Actions = () => {
     <div className="actions">
       <ul className="actionsUL">
         {ACTIONS.map((a) => {
-          const isActive = !!filters[a.name];
+          const isActive = !!actions[a.name];
 
           let disabled = isMobile ? disabled_on_mobile == a.name : isActive;
 
@@ -46,7 +46,7 @@ export const Actions = () => {
               icon={a.icon}
               alt={a.alt}
               disabled={disabled}
-              onClick={() => setFilters(a.name)}
+              onClick={() => setActions(a.name)}
             />
           );
         })}

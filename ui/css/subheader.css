@@ -86,13 +86,6 @@ main {
   gap: 10px;
 }
 
-.filterBtn {
-  border: none;
-  background-color: #fff;
-  padding: 8px;
-  border-radius: 5px;
-}
-
 .actionsUL {
   display: flex;
 }
@@ -101,7 +94,7 @@ main {
   list-style: none;
 }
 
-.filterButton {
+.actionBtn {
   border: none;
   padding: 8px;
   background-color: #fff;
@@ -110,30 +103,102 @@ main {
   transition: transform 0.2s ease;
 }
 
-.filterButton:not([disabled]):hover {
+.actionBtn:not([disabled]):hover {
   transform: translateY(-1px);
 }
 
-.filterButton:disabled {
+.actionBtn:disabled {
   border: none;
   background-color: #f0f0f0;
   padding: 8px;
   border: #adadad 1.5px solid;
 }
 
-.actionsUL > li:first-child .filterButton {
+.actionsUL > li:first-child .actionBtn {
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
 
-.actionsUL > li:last-child .filterButton {
+.actionsUL > li:last-child .actionBtn {
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
 
+.filter {
+  position: relative;
+  width: 180px;
+}
+
+.dropdownContainer {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.dropdownBtn {
+  border: none;
+  background-color: #fff;
+  padding: 0.6rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.dropdownBtn:hover {
+  background: #eeeeee;
+  border-radius: 0.3rem;
+  transform: translateY(-2px);
+}
+
+.filterContainer {
+  margin-top: 5px;
+  z-index: 10;
+  position: absolute;
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 5px 2px #d0d0d0;
+  background-color: white;
+}
+
+.filterContainerUl {
+}
+
+.filterLi {
+  list-style: none;
+}
+
+.filterBtn {
+  border: none;
+  width: 100%;
+  text-align: start;
+  padding: 0.8rem 1rem;
+  background-color: #fff;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease-in;
+}
+
+.filterBtn:hover {
+  transform: translateY(-2px);
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.filterContainerUl > li:first-child .filterBtn {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.filterContainerUl > li:last-child .filterBtn {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.filterLabel {
+  font-size: 0.9rem;
+}
+
 /* Media query */
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 1120px) {
   .seekerContainer {
     width: 110px;
   }
@@ -145,7 +210,7 @@ main {
   }
 }
 
-@media screen and (max-width: 835px) {
+@media screen and (max-width: 850px) {
   .createBtn {
     position: fixed;
     border-radius: 100%;
@@ -170,7 +235,7 @@ main {
   }
 }
 
-@media screen and (max-width: 537px) {
+@media screen and (max-width: 680px) {
   .subtitle {
     font-size: 1.5rem;
   }
@@ -196,10 +261,6 @@ main {
     justify-content: center;
     align-items: center;
   }
-  .filterButton {
-    width: 8rem;
-    height: 2.4rem;
-  }
   .seekerContainer {
     display: block;
     width: 100%;
@@ -216,7 +277,7 @@ main {
     right: 20;
     z-index: 10;
   }
-  .filterBtn {
+  .dropdownBtn {
     padding: 0.7rem;
     background-color: #f0f0f0;
     box-shadow: 0px 1px 2px 0px #bdbdbd;
@@ -224,5 +285,9 @@ main {
   .filterImage {
     width: 1rem;
     height: 1rem;
+  }
+  .actionBtn {
+    width: 8rem;
+    height: 2.4rem;
   }
 }

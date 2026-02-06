@@ -2,7 +2,8 @@
 import { useMediaQuery } from "../states/usemediaQuery";
 
 export const BtnProject = () => {
-  const isMobile = useMediaQuery("(max-width: 835px)");
+  const isMobile = useMediaQuery("(max-width: 1000px)");
+  
   return (
     <>
       {isMobile ? (

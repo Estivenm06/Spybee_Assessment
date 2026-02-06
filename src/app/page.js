@@ -1,38 +1,63 @@
 "use client";
+import { useMemo } from "react";
 
 import { Table } from "@/ui/table";
 import { Card } from "@/ui/card";
 import { Map } from "@/ui/common/Map";
-import { useGetData } from "@/ui/states/useData";
 
+import { useGetData } from "@/ui/states/useData";
 import { useActions } from "@/ui/states/useActions";
 import { useMediaQuery } from "@/ui/states/usemediaQuery";
 
 export default function Home() {
   const projects = useGetData((s) => s.projects);
-  const { list, card, map } = useActions((s) => s.filters);
+  const { list, card, map } = useActions((s) => s.actions);
+  const sortBy = useActions((s) => s.sortBy);
   const isMobile = useMediaQuery("(max-width: 930px)");
 
   const showMap = map;
   const showTable = !isMobile && list;
   const showCard = isMobile || card;
 
+  const visibleProjects = useMemo(() => {
+    const projectsClone = [...projects];
+
+    switch (sortBy) {
+      case "AlphaOrder":
+        projectsClone.sort((a, b) => {
+          const nameA = a.title.toLowerCase();
+          const nameB = b.title.toLowerCase();
+          if (nameA < nameB) return -1;
+          if (nameA > nameB) return 1;
+          return 0;
+        });
+      case "Incidents":
+        projectsClone.sort((a, b) => b.incidents.length - a.incidents.length);
+      case "RFI":
+        projectsClone.sort((a, b) => b.incidents.length - a.incidents.length);
+      case "Tasks":
+        projectsClone.sort((a, b) => b.incidents.length - a.incidents.length);
+    }
+
+    return projectsClone;
+  }, [projects, sortBy]);
+
   return (
     <main>
       {!isMobile && showMap && (
         <>
-          <Map projects={projects} />
-          <Table projects={projects} />
+          <Map projects={visibleProjects} />
+          <Table projects={visibleProjects} />
         </>
       )}
       {isMobile && showMap && (
         <>
-          <Map projects={projects} />
-          <Card projects={projects} />
+          <Map projects={visibleProjects} />
+          <Card projects={visibleProjects} />
         </>
       )}
-      {showTable && <Table projects={projects} />}
-      {showCard && !showMap && <Card projects={projects} />}
+      {showTable && <Table projects={visibleProjects} />}
+      {showCard && !showMap && <Card projects={visibleProjects} />}
     </main>
   );
 }
