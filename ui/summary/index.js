@@ -31,7 +31,10 @@ const CardsValues = [
 export const Summary = () => {
   const [summaryDropdown, setSummarydropdown] = useState(false);
   return (
-    <section className="summaryContainer" style={{ gridArea: "summary" }}>
+    <section
+      className="container summaryContainer"
+      style={{ gridArea: "summary" }}
+    >
       <div className="summaryDropdownContainer">
         <div className="summaryDropdownBtnContainer">
           <div className="arrowBtnContainer">

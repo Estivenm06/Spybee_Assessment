@@ -29,30 +29,27 @@ body {
 
 .mainContainer {
   display: grid;
-  grid-template-columns: 60% 40%;
-  grid-template-rows: auto auto;
   grid-template-areas:
     "map summary"
     "table summary";
-    margin-block: 20px;
-    margin-inline: 30px;
-    gap: 1rem;
-  }
-  
-  .mainContainerTable {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "table summary"
-      "table summary";
   margin-block: 20px;
   margin-inline: 30px;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mainContainerTable {
+  display: grid;
+  grid-template-areas:
+  "table summary"
+  "table summary";
+  margin-block: 20px;
+  margin-inline: 30px;
+  justify-content: space-between;
   gap: 1rem;
 }
 
 .container {
-  width: 100%;
   border-radius: 1rem;
   overflow-x: auto;
   height: 700px;
@@ -67,4 +64,7 @@ body {
     width: 0.4rem;
     height: 0.2rem;
   }
+}
+
+@media screen and (min-width: 1200px) {
 }

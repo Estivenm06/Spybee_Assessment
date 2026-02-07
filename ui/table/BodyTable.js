@@ -38,7 +38,7 @@ const BodyTable = ({ project }) => {
       <td className="projectCol">
         <Status projectStatus={status} />
       </td>
-      <td className="projectCol">
+      <td className="projectCol" >
         <AvatarGroup team={team} truncate />
       </td>
       <td className="projectCol">

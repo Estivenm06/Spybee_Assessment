@@ -22,7 +22,6 @@
 .rowHeader,
 .rowHeader th {
   padding: 10px 15px;
-  text-align: start;
   font-size: 14px;
   color: #3c3c3b;
 }
@@ -40,6 +39,7 @@
 
 .projectTitleHead {
   width: 250px;
+  text-align: start;
 }
 
 .projectTeamHead {
@@ -48,10 +48,12 @@
 }
 
 .projectItemsHead {
+  text-align: start;
   width: 250px;
 }
 
 .projectHead {
+  text-align: start;
   width: 100px;
 }
 

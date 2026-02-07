@@ -1,11 +1,12 @@
 /* Card */
 
-.cardContainer {
+.cardContainerComponent {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
 }
 
 .singlecardContainer {
@@ -70,21 +71,13 @@
   margin: 8px 0;
 }
 
-@media screen and (max-width: 730px) {
-  .cardContainer {
+@media screen and (max-width: 1230px) {
+  .container {
     display: inline-block;
     width: 100%;
   }
   .singlecardContainer {
     width: 100%;
     height: 100%;
-  }
-}
-
-@media screen and (min-width: 1650px) {
-  .cardContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
   }
 }

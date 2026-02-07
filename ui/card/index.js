@@ -3,7 +3,6 @@
 import { usePagination } from "../states/usePagination";
 
 import { Pagination } from "../common/Pagination";
-import { NoData } from "../common/noData";
 import { CardComponent } from "./Card";
 
 export const Card = ({ projects }) => {
@@ -21,7 +20,7 @@ export const Card = ({ projects }) => {
   return (
     <section className="container">
         {/* Card Component */}
-        <div className="cardContainer">
+        <div className="cardContainerComponent">
           {projectsToShow.map((project) => (
             <CardComponent project={project} key={project._id} />
           ))}

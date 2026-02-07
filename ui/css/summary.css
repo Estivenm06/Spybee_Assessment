@@ -1,8 +1,9 @@
+/* Summary */
+
 .summaryContainer {
-  background: #ffffff;
-  width: 100%;
+  width: 500px;
+  background: #fff;
   padding: 1rem;
-  border-radius: 0.5rem;
 }
 
 .arrowBtnContainer {
@@ -126,7 +127,6 @@
   flex-direction: column;
   background: #fafafa;
   padding: 1.3rem;
-  width: fit-content;
   border-radius: 0.5rem;
   box-shadow: 1px 2px 1px 0px #b9b9b9;
   justify-content: center;
@@ -137,7 +137,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .cardHeader span {
@@ -174,79 +174,79 @@
   z-index: 1;
 }
 
-
 .cardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    padding-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-block: 1rem;
+  width: 100%;
 }
 
 .summarytableContainer {
-    width: 100%;
-    max-width: 100%;
-    border-spacing: 0;
-    padding-bottom: 2rem;
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  padding-bottom: 2rem;
 }
 
 .tableContainerSummary {
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 100%;
-    border-radius: 1rem;
-    background: #FAFAFA;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  border-radius: 1rem;
+  background: #fafafa;
 }
 
 .tableContainerSummary th,
 .tableContainerSummary td {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .tableText {
-    font-size: 1rem;
-    color: #6b7280;
-    text-align: start;
-    padding: .6rem;
+  font-size: 1rem;
+  color: #6b7280;
+  text-align: start;
+  padding: 0.6rem;
 }
 
 .firstTh {
-    width: 100px;
+  width: 100px;
 }
 
 .secondTh {
-    width: 40px;
+  width: 40px;
 }
 
-.thirdTh  {
-    width: 40px;
+.thirdTh {
+  width: 40px;
 }
 
 .dateText {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .dateTableSummary {
-    display: flex;
-    flex-direction: column;
-    gap: .2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .dateTableSummary span {
-    display: flex;
-    justify-content: start;
-    align-items: center;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .dividerTableSummary {
-    border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
 }
 
 .tableFirstCol p {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .tableFirstCol span {
-    font-size: 15px;
+  font-size: 15px;
 }
