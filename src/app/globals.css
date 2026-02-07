@@ -5,9 +5,10 @@
 @import url("@/ui/css/noData.css");
 @import url("@/ui/css/card.css");
 @import url("@/ui/css/table.css");
+@import url("@/ui/css/summary.css");
 
 :root {
-  --background: #F5F5F5;
+  --background: #f5f5f5;
 }
 
 @theme inline {
@@ -25,41 +26,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/*
-MEDIA QUERIES
-*/
-
-@media screen and (max-width: 768px) {
-  .spybeeLogo {
-    width: 100px;
-    height: 50px;
-    object-fit: cover;
-  }
+.mainContainer {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "map summary"
+  "table summary"
+  ;
+  margin-block: 20px;
+  margin-inline: 30px;
+  gap: 1rem;
 }
-
-@media screen and (max-width: 481px) {
-  .spybeeLogo {
-    width: 100px;
-    height: 40px;
-    object-fit: cover;
-  }
-}
-
-/* @media screen and (max-width: 525px) {
-  .subheader {
-    gap: 10px;
-  }
-  .subtitleContainer {
-    display: flex;
-    width: 100%;
-    margin: auto;
-    justify-content: center;
-  }
-  .optionsContainer {
-    gap: 10px;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    width: 100%;
-  }
-} */

@@ -8,11 +8,6 @@
   flex-wrap: wrap;
 }
 
-main {
-  margin-block: 20px;
-  margin-inline: 30px;
-}
-
 .subtitleContainer {
   display: flex;
   gap: 10px;
@@ -156,9 +151,6 @@ main {
   border-radius: 0.5rem;
   box-shadow: 2px 4px 5px 2px #d0d0d0;
   background-color: white;
-}
-
-.filterContainerUl {
 }
 
 .filterLi {

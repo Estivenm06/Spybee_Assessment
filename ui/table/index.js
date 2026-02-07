@@ -20,10 +20,11 @@ export const Table = ({ projects }) => {
 
   return (
     <>
-      <section className="tableSection">
+      <section className="tableSection" style={{ gridArea: "table" }}>
         {projectsLength == 0 && <NoData />}
         {projectsLength !== 0 && (
           <>
+          <div className="tableWrap">
             <table className="tableContainer">
               <HeaderTable />
               <tbody className="tableBody">
@@ -32,6 +33,7 @@ export const Table = ({ projects }) => {
                 ))}
               </tbody>
             </table>
+          </div>
             {/* Pagination */}
             <div>
               <ul className="paginationContainer">

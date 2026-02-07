@@ -1,4 +1,4 @@
-header {
+.headerContainer {
   color: #fff;
   background-color: #3c3c3c;
   padding-block: 20px;
@@ -14,4 +14,24 @@ header {
   width: 150px;
   height: 50px;
   object-fit: cover;
+}
+
+/*
+MEDIA QUERIES
+*/
+
+@media screen and (max-width: 768px) {
+  .spybeeLogo {
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .spybeeLogo {
+    width: 100px;
+    height: 40px;
+    object-fit: cover;
+  }
 }

@@ -1,9 +1,13 @@
+import Image from "next/image";
+
 import { AvatarGroup } from "@/ui/common/avatar";
 import { Item } from "@/ui/common/items";
 import { Plan } from "@/ui/common/Plan";
 import { Status } from "@/ui/common/Status";
 
 import { dateFormat, teamFormat } from "../utils/utils";
+
+import avatar from "@/public/transparentAvatar.webp";
 
 const BodyTable = ({ project }) => {
   const {
@@ -20,8 +24,8 @@ const BodyTable = ({ project }) => {
 
   return (
     <tr className="row">
-      <td className="dataProject">
-        {/* <Image className="dataImage" alt="Project Logo" /> */}
+      <td className="projectTitleCol">
+        <Image className="dataImage" src={avatar} alt="Project_Avatar" />
         <div className="dataTitleContainer">
           <h3 className="dataTitle">{title}</h3>
           <p className="dataSub">
@@ -29,18 +33,18 @@ const BodyTable = ({ project }) => {
           </p>
         </div>
       </td>
-      <td className="dataPlan">
+      <td className="projectCol">
         <Plan planName={projectPlanData.plan} />
       </td>
-      <td className="dataStatus">
+      <td className="projectCol">
         <Status projectStatus={status} />
       </td>
-      <td className="dataTeam">
+      <td className="projectCol">
         <div className="avatarContainer">
           <AvatarGroup team={team} truncate />
         </div>
       </td>
-      <td className="dataItems">
+      <td className="projectCol">
         <ul className="tableItems">
           <Item number={incidents.length} type={"Incidencias"} />
           <Item number={incidents.length} type={"RFI"} />

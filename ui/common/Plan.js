@@ -16,12 +16,12 @@ const PLAN_STYLES = {
 const PlanPill = ({ plan, mobile }) => {
   const { label, bg } = plan;
   return (
-    <p
-      className={mobile ? "planMobile" : "plan"}
-      style={{ backgroundColor: bg }}
-    >
-      {label}
-    </p>
+      <p
+        className={mobile ? "planMobile" : "plan"}
+        style={{ backgroundColor: bg }}
+      >
+        {label}
+      </p>
   );
 };
 

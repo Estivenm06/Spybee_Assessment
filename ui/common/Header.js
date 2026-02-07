@@ -2,9 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import Logo from "@/public/spybeeLogo.webp"
 
-export const Header = ({ title }) => {
+export const Header = () => {
     return (
-        <header>
+        <header className='headerContainer'>
             <div>
             <Image 
             src={Logo}

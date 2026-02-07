@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { Table } from "@/ui/table";
 import { Card } from "@/ui/card";
 import { Map } from "@/ui/common/Map";
+import { Summary } from "@/ui/summary";
 
 import { useGetData } from "@/ui/states/useData";
 import { useActions } from "@/ui/states/useActions";
@@ -43,21 +44,33 @@ export default function Home() {
   }, [projects, sortBy]);
 
   return (
-    <main>
+    <main className="mainContainer">
       {!isMobile && showMap && (
         <>
           <Map projects={visibleProjects} />
+          <Summary />
           <Table projects={visibleProjects} />
         </>
       )}
       {isMobile && showMap && (
         <>
           <Map projects={visibleProjects} />
+          <Summary />
           <Card projects={visibleProjects} />
         </>
       )}
-      {showTable && <Table projects={visibleProjects} />}
-      {showCard && !showMap && <Card projects={visibleProjects} />}
+      {showTable && (
+        <>
+          <Table projects={visibleProjects} />
+          <Summary />
+        </>
+      )}
+      {showCard && !showMap && (
+        <>
+          <Card projects={visibleProjects} />
+          <Summary />
+        </>
+      )}
     </main>
   );
 }

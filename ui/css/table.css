@@ -1,100 +1,105 @@
 /* Table */
 
 .tableSection {
-  width: 100%;
-  overflow-x: auto;
-  height: 650px;
+  overflow-y: auto;
+  height: 700px;
   scroll-behavior: smooth;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   &::-webkit-scrollbar-thumb {
     background-color: #c8c8d2;
-    border-radius: 10px;
+    border-radius: 15px;
   }
   &::-webkit-scrollbar {
-    width: 0.4rem;
-    height: 0.2rem;
+    width: 0.5rem;
+    height: 0.4rem;
   }
+}
+
+.tableWrap {
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
 }
 
 .tableContainer {
-  width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
 }
 
-thead {
-  font-weight: lighter;
-  background-color: #f5f5f5 !important;
+.tableContainer th,
+.tableContainer td {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-tr,
-th {
-  padding-bottom: 10px;
-  padding-left: 10px;
+.rowHeader,
+.rowHeader th {
+  padding: 10px 15px;
   text-align: start;
   font-size: 14px;
   color: #3c3c3b;
 }
 
 .row {
-  background-color: #fff;
+  background-color: #FAFAFA;
   border-bottom: #ebebf0 0.1rem solid;
 }
 
-.row,
-td {
-  vertical-align: middle;
-  padding: 20px 30px;
+.projectTitleCol {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.projectTitleHead {
+  width: 250px;
+}
+
+.projectTeamHead {
+  width: 300px;
+  text-align: center;
+}
+
+.projectItemsHead {
+  width: 250px;
+}
+
+.projectHead {
+  width: 100px;
+}
+
+.projectCol {
+  padding-block: 1rem;
   font-size: 13px;
 }
 
-.dataProject {
-  gap: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-}
-
-.dataPlan {
-  width: 10%;
-}
-
-.dataStatus {
-  width: 25%;
-}
-
-.dataTeam {
-  width: 20%;
-}
-
-.dataItems {
-  width: 25%;
-}
-
 .dataImage {
-  width: 40px;
   height: 40px;
-  border-radius: 5px;
+  width: 40px;
+  border-radius: 0.4rem;
   object-fit: scale-down;
 }
 
 .dataTitleContainer {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  justify-content: start;
+  align-items: start;
 }
 
 .dataTitle {
-  font-size: 15px;
+  font-size: 16px;
   color: #3c3c3b;
 }
 
 .dataSub {
   display: flex;
-  font-size: 11px;
-  gap: 5px;
+  font-size: 13px;
   color: #7a7a7a;
+  gap: 1rem;
 }
 
 .plan {
@@ -135,7 +140,8 @@ td {
 
 .avatarContainer {
   display: flex;
-  flex: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .hex-wrapper {
@@ -177,8 +183,6 @@ td {
 }
 
 .tableItems {
-  margin: 0;
-  padding: 0 0 0 15px;
   display: flex;
   list-style: none;
   gap: 20px;

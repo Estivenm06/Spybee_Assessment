@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <ViewTransition>
         <body>
-          <Header title="This is the header" />
+          <Header />
           <SubHeader />
           {children}
         </body>

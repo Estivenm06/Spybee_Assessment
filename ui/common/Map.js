@@ -51,7 +51,7 @@ export const Map = ({ projects }) => {
   }, [projects]);
 
   return (
-    <section className="mapContainer">
+    <section className="mapContainer" style={{ gridArea: "map" }}>
       <div id="map-container" ref={mapContainerRef} className="mapboxgl" />
     </section>
   );
