@@ -1,34 +1,16 @@
-.cardSection {
-  width: 100%;
-  border-radius: 1rem;
-  overflow-x: auto;
-  height: 700px;
-  scroll-behavior: smooth;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  &::-webkit-scrollbar-thumb {
-    background-color: #c8c8d2;
-    border-radius: 10px;
-  }
-  &::-webkit-scrollbar {
-    width: 0.4rem;
-    height: 0.2rem;
-  }
-}
+/* Card */
 
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  flex: 1;
+  gap: 1rem;
 }
 
 .singlecardContainer {
-  width: 300px;
-  height: 200px;
+  width: 350px;
+  height: 250px;
   background: #fff;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -44,19 +26,19 @@
   transform: translateY(-2px);
 }
 
-.cardHeader {
+.cardHeaderProject {
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
 }
 
-.cardTitle {
+.cardTitleProject {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
 
-.cardTitle > p {
+.cardTitleProject > p {
   margin-left: 0.1rem;
 }
 
@@ -68,11 +50,14 @@
   align-items: right;
 }
 
-.cardBody {
+.cardBodyProjects {
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: start;
   gap: 1rem;
   padding-left: 0.5rem;
+  padding-block: 1rem;
 }
 
 .cardTeam {
@@ -89,7 +74,6 @@
   .cardContainer {
     display: inline-block;
     width: 100%;
-    padding: 0;
   }
   .singlecardContainer {
     width: 100%;
@@ -101,9 +85,6 @@
   .cardContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
     justify-content: center;
-    max-width: 1600px;
-    margin: 0 auto;
   }
 }

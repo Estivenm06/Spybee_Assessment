@@ -19,31 +19,26 @@ export const Card = ({ projects }) => {
   const projectsToShow = projects.slice(startIndex, endIndex);
 
   return (
-    <section className="cardSection">
-      {projectsLength == 0 && <NoData />}
-      {projectsLength !== 0 && (
-        <>
-          {/* Card Component */}
-          <div className="cardContainer">
-            {projectsToShow.map((project) => (
-              <CardComponent project={project} key={project._id} />
-            ))}
-          </div>
+    <section className="container">
+        {/* Card Component */}
+        <div className="cardContainer">
+          {projectsToShow.map((project) => (
+            <CardComponent project={project} key={project._id} />
+          ))}
+        </div>
 
-          {/* Pagination */}
-          <div className="">
-            <ul className="paginationContainer">
-              {Array.from({ length: buttonToShow }).map((_, index) => (
-                <Pagination
-                  key={index}
-                  updatePageFunction={() => updatePage(index)}
-                  value={index + 1}
-                />
-              ))}
-            </ul>
-          </div>
-        </>
-      )}
+        {/* Pagination */}
+        <div className="">
+          <ul className="paginationContainer">
+            {Array.from({ length: buttonToShow }).map((_, index) => (
+              <Pagination
+                key={index}
+                updatePageFunction={() => updatePage(index)}
+                value={index + 1}
+              />
+            ))}
+          </ul>
+        </div>
     </section>
   );
 };

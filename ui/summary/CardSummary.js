@@ -1,4 +1,4 @@
-export const Card = ({ card }) => {
+export const CardSummary = ({ card }) => {
   
   const { percentage, label, total } = card;
 

@@ -104,10 +104,13 @@
 .summaryHeaderBody {
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.expirationText {
-  font-size: large;
+.HeaderBodyLargeText {
+  font-size: 1.4rem;
+  font-weight: bold;
   text-wrap: nowrap;
 }
 
@@ -183,6 +186,7 @@
     width: 100%;
     max-width: 100%;
     border-spacing: 0;
+    padding-bottom: 2rem;
 }
 
 .tableContainerSummary {

@@ -13,8 +13,8 @@ export const CardComponent = ({ project }) => {
   return (
     <div className="singlecardContainer">
       {/* <Image /> */}
-      <div className="cardHeader">
-        <div className="cardTitle">
+      <div className="cardHeaderProject">
+        <div className="cardTitleProject">
           <h3 className="dataTitle">{project.title}</h3>
           <p className="dataSub">
             {dateFormat(project.lastVisit)}{" "}
@@ -31,10 +31,8 @@ export const CardComponent = ({ project }) => {
         </div>
       </div>
       <div className="divider" />
-      <div className="cardBody">
-        <div className="avatarContainer">
-          <AvatarGroup team={team} truncate mobile />
-        </div>
+      <div className="cardBodyProjects">
+        <AvatarGroup team={team} truncate mobile />
         <div>
           <ul className="tableItems">
             <Item number={project.incidents.length} type={"Incidencias"} />

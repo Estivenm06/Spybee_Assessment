@@ -19,8 +19,7 @@ export const Table = ({ projects }) => {
   const projectsToShow = projects.slice(startIndex, endIndex);
 
   return (
-    <>
-      <section className="tableSection" style={{ gridArea: "table" }}>
+      <section className="container" style={{ gridArea: "table" }}>
         {projectsLength == 0 && <NoData />}
         {projectsLength !== 0 && (
           <>
@@ -49,6 +48,5 @@ export const Table = ({ projects }) => {
           </>
         )}
       </section>
-    </>
   );
 };

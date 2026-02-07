@@ -9,6 +9,7 @@ import { Summary } from "@/ui/summary";
 import { useGetData } from "@/ui/states/useData";
 import { useActions } from "@/ui/states/useActions";
 import { useMediaQuery } from "@/ui/states/usemediaQuery";
+import { NoData } from "@/ui/common/noData";
 
 export default function Home() {
   const projects = useGetData((s) => s.projects);
@@ -43,8 +44,16 @@ export default function Home() {
     return projectsClone;
   }, [projects, sortBy]);
 
+  if (visibleProjects.length == 0)
+    return (
+      <>
+        <NoData />
+        <Summary />
+      </>
+    );
+
   return (
-    <main className="mainContainer">
+    <main className={showTable ? "mainContainerTable" : "mainContainer"}>
       {!isMobile && showMap && (
         <>
           <Map projects={visibleProjects} />

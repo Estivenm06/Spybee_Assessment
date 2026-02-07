@@ -2,10 +2,13 @@ import Image from "next/image";
 
 import PresentationIcon from "@/public/presentation-folder.svg";
 import TimeIcon from "@/public/time.svg";
+import CalendarIcon from "@/public/calendar.svg";
 
 import { HeaderSummary } from "./HeaderSummary";
-import { Card } from "./Card";
-import { TableSummary } from "./Table";
+import { CardSummary } from "./CardSummary";
+import { TableSummary } from "./TableSummary";
+import { HeaderBody } from "./HeaderBody";
+import { useState } from "react";
 
 const CardsValues = [
   {
@@ -25,7 +28,8 @@ const CardsValues = [
   },
 ];
 
-export const Summary = ({ projects }) => {
+export const Summary = () => {
+  const [summaryDropdown, setSummarydropdown] = useState(false);
   return (
     <section className="summaryContainer" style={{ gridArea: "summary" }}>
       <div className="summaryDropdownContainer">
@@ -45,18 +49,18 @@ export const Summary = ({ projects }) => {
       <div>
         <HeaderSummary />
         <div className="summaryBody">
-          <div className="summaryHeaderBody">
-            <Image src={TimeIcon} alt="Time Icon" className="icon" />
-            <p className="expirationText">Próximos a vencer</p>
-            <p className="seeAllText">Ver todos</p>
-          </div>
+          <HeaderBody label={"Próximos a vencer"} srcIcon={TimeIcon} />
           <div className="cardsContainer">
             {CardsValues.map((card) => (
-              <Card key={card.label} card={card} />
+              <CardSummary key={card.label} card={card} />
             ))}
           </div>
           <div className="summarytableContainer">
             <TableSummary />
+          </div>
+          <div className="summarytableContainer">
+            <HeaderBody label={"Próximos eventos"} srcIcon={CalendarIcon} />
+            <TableSummary events />
           </div>
         </div>
       </div>

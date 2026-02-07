@@ -12,7 +12,6 @@ import avatar from "@/public/transparentAvatar.webp";
 const BodyTable = ({ project }) => {
   const {
     users,
-    img,
     title,
     lastVisit,
     lastUpdated,
@@ -40,9 +39,7 @@ const BodyTable = ({ project }) => {
         <Status projectStatus={status} />
       </td>
       <td className="projectCol">
-        <div className="avatarContainer">
-          <AvatarGroup team={team} truncate />
-        </div>
+        <AvatarGroup team={team} truncate />
       </td>
       <td className="projectCol">
         <ul className="tableItems">
