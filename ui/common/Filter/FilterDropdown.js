@@ -1,9 +1,9 @@
 import { FilterBtn } from "./FilterBtn";
 
-export const FilterDropdown = ({ options, show }) => {
+export const FilterDropdown = ({ options, show, isMobile }) => {
   return (
     <div
-      className="filterContainer"
+      className={isMobile ? "filterContainerMobile" : "filterContainer"}
       style={{ display: show ? "block" : "none" }}
     >
       <ul className="filterContainerUl">

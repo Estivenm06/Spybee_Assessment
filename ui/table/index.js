@@ -7,7 +7,7 @@ import { BodyTable } from "./BodyTable";
 import { Pagination } from "../common/Pagination";
 import { NoData } from "../common/noData";
 
-export const Table = ({ projects }) => {
+export const Table = ({ projects, mapActive }) => {
   const page = usePagination((state) => state.page);
   const updatePage = usePagination((state) => state.updatePage);
 
@@ -19,7 +19,7 @@ export const Table = ({ projects }) => {
   const projectsToShow = projects.slice(startIndex, endIndex);
 
   return (
-      <section className="container" style={{ gridArea: "table" }}>
+      <section className="container" style={{ gridArea: "table", height: mapActive ? "270px" : ""  }}>
         {projectsLength == 0 && <NoData />}
         {projectsLength !== 0 && (
           <>

@@ -1,4 +1,4 @@
-import { useActions } from "../states/useActions";
+import { useActions } from "@/ui/states/useActions";
 
 export const FilterBtn = ({ label, value }) => {
   const filterFn = useActions(s => s.setFilter)

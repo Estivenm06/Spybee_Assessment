@@ -7,7 +7,6 @@ import listIcon from "@/public/list.svg";
 import mapIcon from "@/public/map.svg";
 
 import { useActions } from "../states/useActions";
-import { useMediaQuery } from "../states/usemediaQuery";
 
 const ActionButton = ({ icon, alt, disabled, onClick }) => {
   return (
@@ -28,17 +27,12 @@ const ACTIONS = [
 export const Actions = () => {
   const actions = useActions((state) => state.actions);
   const setActions = useActions((state) => state.setActions);
-  const isMobile = useMediaQuery("(max-width: 930px)");
-
-  const disabled_on_mobile = "list";
 
   return (
     <div className="actions">
       <ul className="actionsUL">
         {ACTIONS.map((a) => {
-          const isActive = !!actions[a.name];
-
-          let disabled = isMobile ? disabled_on_mobile == a.name : isActive;
+          const disabled = actions[a.name];
 
           return (
             <ActionButton

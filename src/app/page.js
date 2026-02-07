@@ -8,18 +8,16 @@ import { Summary } from "@/ui/summary";
 
 import { useGetData } from "@/ui/states/useData";
 import { useActions } from "@/ui/states/useActions";
-import { useMediaQuery } from "@/ui/states/usemediaQuery";
 import { NoData } from "@/ui/common/noData";
 
 export default function Home() {
   const projects = useGetData((s) => s.projects);
   const { list, card, map } = useActions((s) => s.actions);
   const sortBy = useActions((s) => s.sortBy);
-  const isMobile = useMediaQuery("(max-width: 930px)");
 
   const showMap = map;
-  const showTable = !isMobile && list;
-  const showCard = isMobile || card;
+  const showTable = list;
+  const showCard = card;
 
   const visibleProjects = useMemo(() => {
     const projectsClone = [...projects];
@@ -54,18 +52,11 @@ export default function Home() {
 
   return (
     <main className={showTable ? "mainContainerTable" : "mainContainer"}>
-      {!isMobile && showMap && (
+      {showMap && (
         <>
           <Map projects={visibleProjects} />
           <Summary />
-          <Table projects={visibleProjects} />
-        </>
-      )}
-      {isMobile && showMap && (
-        <>
-          <Map projects={visibleProjects} />
-          <Summary />
-          <Card projects={visibleProjects} />
+          <Table projects={visibleProjects} mapActive />
         </>
       )}
       {showTable && (
@@ -74,7 +65,7 @@ export default function Home() {
           <Summary />
         </>
       )}
-      {showCard && !showMap && (
+      {showCard && (
         <>
           <Card projects={visibleProjects} />
           <Summary />

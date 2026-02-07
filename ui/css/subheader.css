@@ -153,6 +153,13 @@
   background-color: white;
 }
 
+.filterContainerMobile {
+  position: absolute;
+  bottom: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 5px 2px #d0d0d0;
+}
+
 .filterLi {
   list-style: none;
 }

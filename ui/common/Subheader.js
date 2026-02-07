@@ -1,6 +1,6 @@
 "use client";
 
-import { Filter } from "./Filter";
+import { Filter } from "./Filter/Filter";
 import { Actions } from "./Actions";
 import { BtnProject } from "./BtnProject";
 import { Seeker } from "./Seeker";

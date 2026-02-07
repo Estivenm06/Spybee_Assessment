@@ -1,8 +1,10 @@
 import Image from "next/image";
 import bars from "@/public/bars-sort.svg";
-import { useState } from "react";
 
 import { FilterDropdown } from "./FilterDropdown";
+
+import { useFilter } from "@/ui/states/useFilter";
+import { useMediaQuery } from "@/ui/states/usemediaQuery";
 
 const filterOptions = [
   { label: "Orden Alfabetico", option: "AlphaOrder" },
@@ -12,15 +14,16 @@ const filterOptions = [
 ];
 
 export const Filter = () => {
-  const [dropdown, setDropdown] = useState(false);
-  const enableDropDown = () => setDropdown((prev) => !prev);
+  const dropdown = useFilter((s) => s.dropdown);
+  const enableDropdown = useFilter((s) => s.enableDropdown);
+  const isMobile = useMediaQuery("(max-width: 680px)");
 
   return (
     <div className="filter">
       <div className="dropdownContainer">
         <button
           className="dropdownBtn"
-          onClick={enableDropDown}
+          onClick={() => enableDropdown()}
           value={dropdown}
         >
           <Image
@@ -32,7 +35,11 @@ export const Filter = () => {
           />
         </button>
       </div>
-      <FilterDropdown options={filterOptions} show={dropdown} />
+      <FilterDropdown
+        options={filterOptions}
+        show={dropdown}
+        isMobile={isMobile}
+      />
     </div>
   );
 };
