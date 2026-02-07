@@ -6,6 +6,17 @@
   padding: 1rem;
 }
 
+.summaryContainerModal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 2rem;
+  overflow: auto;
+}
+
 .summaryDropdownContainer {
   display: flex;
   flex-direction: row;
@@ -40,8 +51,8 @@
   right: 40;
   top: 11rem;
   transition: transform 0.2s ease;
-  z-index: 10;
-  box-shadow: 1px 1px 1px 1px #f0f0f0;
+  z-index: 100;
+  box-shadow: 1px 1px 5px 2px #b1b1b1;
 }
 
 .arrowBtnContainer:hover {
@@ -184,11 +195,10 @@
 }
 
 .cardsContainer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
   gap: 1rem;
   padding-block: 1rem;
-  width: 100%;
 }
 
 .summarytableContainer {
@@ -259,3 +269,24 @@
 .tableFirstCol span {
   font-size: 15px;
 }
+
+
+@media screen and (min-width: 850px) {
+  .summaryHeader .presentationIcon {
+    height: 20px;
+    width: 20px;
+  }
+  .summaryHeader h4, .viewText, .HeaderBodyLargeText, .seeAllText{
+    font-size: large;
+  }
+  .cardsContainer {
+    gap: .5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cardsContainer {
+    grid-template-columns: auto auto;
+  }
+}
+

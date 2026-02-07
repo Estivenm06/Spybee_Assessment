@@ -9,20 +9,22 @@ import { TableSummary } from "./TableSummary";
 import { HeaderBody } from "./HeaderBody";
 
 import { useSummary } from "../states/useSummary";
-import { DropDown, DropDownBtn } from "./DropdownBtn";
+import { DropDown } from "./DropdownBtn";
+import { useMediaQuery } from "../states/usemediaQuery";
 
 export const Summary = () => {
   const cardValues = useSummary((s) => s.cardValues);
   const dropdown = useSummary((s) => s.dropdown);
   const setDropdown = useSummary((s) => s.setDropdown);
-  console.log(dropdown);
+  const isMobile = useMediaQuery("(max-width: 850px)")
+  console.log(isMobile);
 
   if (!dropdown) return <DropDown setDropdown={setDropdown} />;
 
   return (
     <section className="container" style={{ gridArea: "summary" }}>
       <DropDown setDropdown={setDropdown} active />
-      <div className="summaryContainer">
+      <div className={`summaryContainer ${isMobile ? "summaryContainerModal" : "summaryContainer"}`}>
         <HeaderSummary />
         <div className="summaryBody">
           <HeaderBody label={"Próximos a vencer"} srcIcon={TimeIcon} />

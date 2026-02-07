@@ -10,13 +10,22 @@ export const Map = ({ projects }) => {
   const mapRef = useRef();
   const mapContainerRef = useRef();
 
+  const markersRef = useRef([]);
+  const popupRef = useRef(
+    new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false,
+      className: "popup",
+    }),
+  );
+
   useEffect(() => {
     mapboxgl.accessToken =
       "pk.eyJ1IjoiZXN0aXZlbmFtZyIsImEiOiJjbWxhMXUzNmowOWZ3M2VweHUzM2puMDNnIn0.4IscbolQ66Z8fcEEIsvesA";
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/satellite-streets-v12",
-      //   center: [-74.5, 40],
+      center: [-74.5, 40],
       //   zoom: 9,
     });
 
@@ -25,27 +34,48 @@ export const Map = ({ projects }) => {
     // Geolocalication of this map
     map.addControl(new mapboxgl.GeolocateControl());
 
+    markersRef.current.forEach((m) => m.remove());
+    markersRef.current = [];
+
     projects.forEach((project) => {
-      const el = document.createElement("div");
-      el.className = "marker";
-      el.dataset.projectId = project.position._id;
+      const coordenatesProject = [project.position.lng, project.position.lat];
+
+      const marker = new mapboxgl.Marker()
+        .setLngLat(coordenatesProject)
+        .addTo(map);
+
+      const el = marker.getElement();
+      el.style.cursor = "pointer";
 
       el.addEventListener("click", () => {
-        console.log("Clicked project: ", el.dataset.projectId);
+        popupRef.current
+          .setLngLat(coordenatesProject)
+          .setHTML(`<strong>${project.title}</strong>`)
+          .addTo(map);
       });
 
-      new mapboxgl.Marker()
-        .setLngLat([project.position.lng, project.position.lat])
-        .addTo(map);
+      // el.addEventListener("click", () => {
+      //   console.log("Clicked project: ", project._id);
+      // });
 
-      new mapboxgl.Popup()
-        .setLngLat([project.position.lng, project.position.lat])
-        .setHTML(`<h3>${project.clientData.title}</h3><p>${project.city}</p>`)
-        .addTo(map);
+      el.addEventListener("touchstart", () => {
+        popupRef.current
+          .setLngLat(coordenatesProject)
+          .setHTML(`<strong>${project.title}</strong>`)
+          .addTo(map);
+      });
+
+      el.addEventListener("touchend", () => {
+        popupRef.current.remove();
+      });
+
+      markersRef.current.push(marker);
     });
 
     mapRef.current = map;
     return () => {
+      markersRef.current.forEach((m) => m.remove());
+      markersRef.current = [];
       mapRef.current.remove();
     };
   }, [projects]);
