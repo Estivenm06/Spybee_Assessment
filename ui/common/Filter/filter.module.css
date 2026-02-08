@@ -1,0 +1,93 @@
+.filter {
+  position: relative;
+  width: 180px;
+}
+
+.filterContainer {
+  margin-top: 5px;
+  z-index: 10;
+  position: absolute;
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 5px 2px #d0d0d0;
+  background-color: white;
+}
+
+.filterContainerMobile {
+  position: absolute;
+  bottom: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 5px 2px #d0d0d0;
+}
+
+.filterLi {
+  list-style: none;
+}
+
+.filterBtn {
+  border: none;
+  width: 100%;
+  text-align: start;
+  padding: 0.8rem 1rem;
+  background-color: #fff;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease-in;
+}
+
+.filterBtn:hover {
+  transform: translateY(-2px);
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.filterContainerUl > li:first-child .filterBtn {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.filterContainerUl > li:last-child .filterBtn {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.filterLabel {
+  font-size: 0.9rem;
+}
+
+.dropdownContainer {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.dropdownBtn {
+  border: none;
+  background-color: #fff;
+  padding: 0.6rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.dropdownBtn:hover {
+  background: #eeeeee;
+  border-radius: 0.3rem;
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 680px) {
+  .filter {
+    position: fixed;
+    bottom: 65;
+    right: 20;
+    z-index: 10;
+  }
+  .filterImage {
+    width: 1rem;
+    height: 1rem;
+  }
+    .dropdownBtn {
+    padding: 0.7rem;
+    background-color: #f0f0f0;
+    box-shadow: 0px 1px 2px 0px #bdbdbd;
+  }
+}

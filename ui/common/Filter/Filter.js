@@ -13,21 +13,23 @@ const filterOptions = [
   { label: "Numero de Tareas", option: "Tasks" },
 ];
 
+import styles from "./filter.module.css"
+
 export const Filter = () => {
   const dropdown = useFilter((s) => s.dropdown);
   const enableDropdown = useFilter((s) => s.enableDropdown);
   const isMobile = useMediaQuery("(max-width: 680px)");
 
   return (
-    <div className="filter">
-      <div className="dropdownContainer">
+    <div className={styles.filter}>
+      <div className={styles.dropdownContainer}>
         <button
-          className="dropdownBtn"
+          className={styles.dropdownBtn}
           onClick={() => enableDropdown()}
           value={dropdown}
         >
           <Image
-            className="filterImage"
+            className={styles.filterImage}
             src={bars}
             width={12}
             height={12}

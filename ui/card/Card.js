@@ -5,8 +5,12 @@ import { Status } from "../table/tableComponents/Status";
 
 import { dateFormat, teamFormat } from "../utils/utils";
 
+import ClockIcon from "@/public/clock.svg";
+import RefreshIcon from "@/public/refresh.svg";
+
 import styles from "./card.module.css";
 import stylesTable from "../table/table.module.css";
+import { SubItem } from "../table/tableComponents/SubItem";
 
 export const CardComponent = ({ project }) => {
   const team = teamFormat(project.users);
@@ -17,10 +21,13 @@ export const CardComponent = ({ project }) => {
       <div className={styles.cardHeaderProject}>
         <div className={styles.cardTitleProject}>
           <h3 className={stylesTable.dataTitle}>{project.title}</h3>
-          <p className={stylesTable.dataSub}>
-            {dateFormat(project.lastVisit)}{" "}
-            <span>{dateFormat(project.lastUpdated)}</span>
-          </p>
+          <div className={stylesTable.dataSub}>
+            <SubItem icon={ClockIcon} text={dateFormat(project.lastVisit)} />
+            <SubItem
+              icon={RefreshIcon}
+              text={dateFormat(project.lastUpdated)}
+            />
+          </div>
         </div>
         <div className={styles.cardPlan}>
           <div>

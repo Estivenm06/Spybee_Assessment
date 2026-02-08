@@ -8,9 +8,13 @@ import { Status } from "@/ui/table/tableComponents/Status";
 import { dateFormat, teamFormat } from "../utils/utils";
 
 import avatar from "@/public/transparentAvatar.webp";
+import ClockIcon from "@/public/clock.svg";
+import RefreshIcon from "@/public/refresh.svg";
+
 import { useMap } from "../states/useMap";
 
 import styles from "./table.module.css";
+import { SubItem } from "./tableComponents/SubItem";
 
 const BodyTable = ({ project, mapActive }) => {
   const setCoordenates = useMap((s) => s.setCoordenates);
@@ -37,9 +41,10 @@ const BodyTable = ({ project, mapActive }) => {
         <Image className={styles.dataImage} src={avatar} alt="Project_Avatar" />
         <div className={styles.dataTitleContainer}>
           <h3 className={styles.dataTitle}>{title}</h3>
-          <p className={styles.dataSub}>
-            {dateFormat(lastVisit)} <span>{dateFormat(lastUpdated)}</span>
-          </p>
+          <div className={styles.dataSub}>
+            <SubItem icon={ClockIcon} text={dateFormat(lastVisit)} />
+            <SubItem icon={RefreshIcon} text={dateFormat(lastUpdated)} />
+          </div>
         </div>
       </td>
       <td className={styles.projectCol}>

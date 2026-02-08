@@ -6,23 +6,25 @@ import { AvatarGroup } from "../common/Avatar/avatar";
 
 const team = ["JC", "AM", "SJ"];
 
+import styles from "./summary.module.css";
+
 const RowTable = ({ events }) => {
   return (
-    <tr className="dividerTableSummary">
-      <td className="tableText">
-        <div className="tableFirstCol">
+    <tr className={styles.dividerTableSummary}>
+      <td className={styles.tableText}>
+        <div className={styles.tableFirstCol}>
           <p>Proyecto uno</p>
           <span>Revisar reportes del miercoles</span>
         </div>
       </td>
-      <td className="tableText">
+      <td className={styles.tableText}>
         {events ? <AvatarGroup team={team} /> : "Incidencia"}
       </td>
-      <td className="tableText">
-        <div className="dateTableSummary">
-          <p className="dateText">12/08/2024</p>
+      <td className={styles.tableText}>
+        <div className={styles.dateTableSummary}>
+          <p className={styles.dateText}>12/08/2024</p>
           <span>
-            <Image src={ClockIcon} alt="Clock Icon" className="icon" />
+            <Image src={ClockIcon} alt="Clock Icon" className={styles.icon} />
             15:00
           </span>
         </div>
@@ -34,12 +36,12 @@ const RowTable = ({ events }) => {
 export const TableSummary = ({ events }) => {
   return (
     <>
-      <table className="tableContainerSummary">
-        <thead className="dividerTableSummary">
+      <table className={styles.tableContainerSummary}>
+        <thead className={styles.dividerTableSummary}>
           <tr>
-            <th className="tableText firstTh">Proyecto</th>
-            <th className="tableText secondTh">{events ? "Equipo" : "Item"}</th>
-            <th className="tableText thirdTh">Fecha Límite</th>
+            <th className={styles.tableText + " " + styles.firstTh}>Proyecto</th>
+            <th className={styles.tableText + " " + styles.secondTh}>{events ? "Equipo" : "Item"}</th>
+            <th className={styles.tableText + " " + styles.thirdTh}>Fecha Límite</th>
           </tr>
         </thead>
         <tbody>
