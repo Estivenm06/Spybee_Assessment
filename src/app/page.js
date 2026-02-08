@@ -3,12 +3,13 @@ import { useMemo } from "react";
 
 import { Table } from "@/ui/table";
 import { Card } from "@/ui/card";
-import { Map } from "@/ui/common/Map";
+import { Map } from "@/ui/Map/Map";
 import { Summary } from "@/ui/summary";
+import { NoData } from "@/ui/common/noData/NoData";
 
 import { useGetData } from "@/ui/states/useData";
 import { useActions } from "@/ui/states/useActions";
-import { NoData } from "@/ui/common/noData";
+
 
 export default function Home() {
   const projects = useGetData((s) => s.projects);

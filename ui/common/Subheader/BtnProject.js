@@ -1,5 +1,7 @@
 "use client";
-import { useMediaQuery } from "../states/usemediaQuery";
+import { useMediaQuery } from "@/ui/states/usemediaQuery";
+
+import styles from "./subheader.module.css"
 
 export const BtnProject = () => {
   const isMobile = useMediaQuery("(max-width: 1000px)");
@@ -7,11 +9,11 @@ export const BtnProject = () => {
   return (
     <>
       {isMobile ? (
-        <button className="createBtn">
+        <button className={styles.createBtn}>
           <span>+</span>
         </button>
       ) : (
-        <button className="createBtn">
+        <button className={styles.createBtn}>
           <span>+</span>
           Crear proyecto
         </button>

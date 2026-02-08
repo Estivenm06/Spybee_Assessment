@@ -1,0 +1,18 @@
+.plan {
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5em;
+  font-weight: bold;
+  text-align: center;
+  width: fit-content;
+}
+
+.planMobile {
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 5em;
+  font-weight: bold;
+  text-align: center;
+  width: fit-content;
+  font-size: small;
+}

@@ -55,7 +55,7 @@
   border-radius: 5px;
 }
 
-.seekerContainer input {
+.seekerInput {
   width: 100%;
   padding: 10px 60px 10px 5px;
   display: block;
@@ -201,7 +201,7 @@
   .seekerContainer {
     width: 110px;
   }
-  .seekerContainer input {
+  .seekerInput {
     font-size: 0.8rem;
   }
   .seekerContainer button {
@@ -264,7 +264,7 @@
     display: block;
     width: 100%;
   }
-  .seekerContainer input {
+  .seekerInput {
     font-size: 1rem;
   }
   .seekerContainer button {

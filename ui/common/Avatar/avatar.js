@@ -1,13 +1,15 @@
-export const Avatar = ({ user }) => (
-  <div className="hex-wrapper">
-    <p className="avatar">{user}</p>
+import stylesAvatar from "./avatar.module.css";
+
+export const Avatar = ({ user, styles }) => (
+  <div className={stylesAvatar.hexWrapper} style={styles}>
+    <p className={stylesAvatar.avatar}>{user}</p>
   </div>
 );
 
 export const AvatarGroup = ({ team, truncate, mobile }) => {
   if (!truncate) {
     return (
-      <div className="avatarContainer">
+      <div className={stylesAvatar.avatarContainer}>
         {team.map((user) => (
           <Avatar key={user} user={user} />
         ))}
@@ -18,7 +20,7 @@ export const AvatarGroup = ({ team, truncate, mobile }) => {
   const teamLength = team.length;
 
   let result = (
-    <div className="avatarContainer">
+    <div className={stylesAvatar.avatarContainer}>
       {team.map((user) => (
         <Avatar key={user} user={user} />
       ))}
@@ -28,7 +30,7 @@ export const AvatarGroup = ({ team, truncate, mobile }) => {
   if (mobile) {
     if (teamLength > 2) {
       result = (
-        <div className="avatarContainer">
+        <div className={stylesAvatar.avatarContainer}>
           {team.slice(0, 2).map((user) => (
             <Avatar key={user} user={user} />
           ))}
@@ -39,7 +41,7 @@ export const AvatarGroup = ({ team, truncate, mobile }) => {
   } else {
     if (teamLength > 4) {
       result = (
-        <div className="avatarContainer">
+        <div className={stylesAvatar.avatarContainer}>
           {team.slice(0, 4).map((user) => (
             <Avatar key={user} user={user} />
           ))}

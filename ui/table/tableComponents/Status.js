@@ -1,3 +1,5 @@
+import styles from "./status.module.css"
+
 const STATUS_STYLES = {
   suspended: {
     label: "Suspendido",
@@ -25,7 +27,7 @@ const StatusPill = ({ status, mobile }) => {
   const { label, bg, color } = status;
   return (
       <p
-        className={mobile ? "statusMobile" : "status"}
+        className={mobile ? styles.statusMobile : styles.status}
         style={{ backgroundColor: bg, color: color }}
       >
         {label}

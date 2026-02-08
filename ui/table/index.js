@@ -4,8 +4,11 @@ import { usePagination } from "../states/usePagination";
 
 import { HeaderTable } from "./HeaderTable";
 import { BodyTable } from "./BodyTable";
-import { Pagination } from "../common/Pagination";
-import { NoData } from "../common/noData";
+import { Pagination } from "../common/Pagination/Pagination";
+import { NoData } from "../common/noData/NoData";
+
+import styles from './table.module.css'
+import stylesPagination from "../common/Pagination/pagination.module.css"
 
 export const Table = ({ projects, mapActive }) => {
   const page = usePagination((state) => state.page);
@@ -19,34 +22,41 @@ export const Table = ({ projects, mapActive }) => {
   const projectsToShow = projects.slice(startIndex, endIndex);
 
   return (
-      <section className="container" style={{ gridArea: "table", height: mapActive ? "270px" : ""  }}>
-        {projectsLength == 0 && <NoData />}
-        {projectsLength !== 0 && (
-          <>
-          <div className="tableWrap">
-            <table className="tableContainer">
+    <section
+      className="container"
+      style={{ gridArea: "table", height: mapActive ? "270px" : "" }}
+    >
+      {projectsLength == 0 && <NoData />}
+      {projectsLength !== 0 && (
+        <>
+          <div className={styles.tableWrap}>
+            <table className={styles.tableContainer}>
               <HeaderTable />
-              <tbody className="tableBody">
+              <tbody className={styles.tableBody}>
                 {projectsToShow.map((project) => (
-                  <BodyTable project={project} key={project._id} />
+                  <BodyTable
+                    project={project}
+                    key={project._id}
+                    mapActive={mapActive}
+                  />
                 ))}
               </tbody>
             </table>
           </div>
-            {/* Pagination */}
-            <div>
-              <ul className="paginationContainer">
-                {Array.from({ length: buttonToShow }).map((_, index) => (
-                  <Pagination
-                    key={index}
-                    updatePageFunction={() => updatePage(index)}
-                    value={index + 1}
-                  />
-                ))}
-              </ul>
-            </div>
-          </>
-        )}
-      </section>
+          {/* Pagination */}
+          <div>
+            <ul className={stylesPagination.paginationContainer}>
+              {Array.from({ length: buttonToShow }).map((_, index) => (
+                <Pagination
+                  key={index}
+                  updatePageFunction={() => updatePage(index)}
+                  value={index + 1}
+                />
+              ))}
+            </ul>
+          </div>
+        </>
+      )}
+    </section>
   );
 };

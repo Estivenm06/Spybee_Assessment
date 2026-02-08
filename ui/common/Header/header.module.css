@@ -16,6 +16,29 @@
   object-fit: cover;
 }
 
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: .8rem;
+}
+
+.userTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.userTitle h1 {
+  font-size: 1rem;
+  font-weight: light;
+}
+
+.userTitle span {
+  font-size: .9rem;
+}
+
 /*
 MEDIA QUERIES
 */

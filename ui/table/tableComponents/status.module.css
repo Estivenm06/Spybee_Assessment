@@ -1,0 +1,16 @@
+.status {
+  padding: 5px 10px;
+  border-radius: 5em;
+  font-weight: bold;
+  width: fit-content;
+  text-align: center;
+}
+
+.statusMobile {
+  padding: 3px 5px;
+  border-radius: 5em;
+  font-weight: bold;
+  text-align: center;
+  width: fit-content;
+  font-size: small;
+}

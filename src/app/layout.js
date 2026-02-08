@@ -1,8 +1,8 @@
 import "./globals.css";
 import { ViewTransition } from "react";
 
-import { Header } from "@/ui/common/Header.js";
-import { SubHeader } from "@/ui/common/Subheader";
+import { Header } from "@/ui/common/Header/Header";
+import { SubHeader } from "@/ui/common/Subheader/Subheader";
 
 export const metadata = {
   title: "Spybee- Inicio",

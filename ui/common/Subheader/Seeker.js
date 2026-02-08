@@ -4,7 +4,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import search from "@/public/search.svg";
-import { useGetData } from "../states/useData";
+import { useGetData } from "@/ui/states/useData";
+
+import style from "./subheader.module.css"
 
 export const Seeker = () => {
   const [query, setQuery] = useState("");
@@ -18,7 +20,7 @@ export const Seeker = () => {
     <>
       <input
         placeholder="Buscar"
-        className="input"
+        className={style.seekerInput}
         type="text"
         onChange={(e) => setQuery(e.target.value)}
         value={query}

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import ClockIcon from "@/public/clock.svg";
 
-import { AvatarGroup } from "../common/avatar";
+import { AvatarGroup } from "../common/Avatar/avatar";
 
 const team = ["JC", "AM", "SJ"];
 

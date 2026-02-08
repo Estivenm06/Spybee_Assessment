@@ -1,27 +1,28 @@
-import Image from "next/image";
-
-import { Item } from "../common/items";
-import { AvatarGroup } from "../common/avatar";
-import { Plan } from "../common/Plan";
-import { Status } from "../common/Status";
+import { Item } from "../table/tableComponents/items";
+import { AvatarGroup } from "../common/Avatar/avatar";
+import { Plan } from "../table/tableComponents/Plan";
+import { Status } from "../table/tableComponents/Status";
 
 import { dateFormat, teamFormat } from "../utils/utils";
+
+import styles from "./card.module.css";
+import stylesTable from "../table/table.module.css";
 
 export const CardComponent = ({ project }) => {
   const team = teamFormat(project.users);
 
   return (
-    <div className="singlecardContainer">
+    <div className={styles.singlecardContainer}>
       {/* <Image /> */}
-      <div className="cardHeaderProject">
-        <div className="cardTitleProject">
-          <h3 className="dataTitle">{project.title}</h3>
-          <p className="dataSub">
+      <div className={styles.cardHeaderProject}>
+        <div className={styles.cardTitleProject}>
+          <h3 className={stylesTable.dataTitle}>{project.title}</h3>
+          <p className={stylesTable.dataSub}>
             {dateFormat(project.lastVisit)}{" "}
             <span>{dateFormat(project.lastUpdated)}</span>
           </p>
         </div>
-        <div className="cardPlan">
+        <div className={styles.cardPlan}>
           <div>
             <Plan planName={project.projectPlanData.plan} mobile />
           </div>
@@ -30,11 +31,11 @@ export const CardComponent = ({ project }) => {
           </div>
         </div>
       </div>
-      <div className="divider" />
-      <div className="cardBodyProjects">
+      <div className={styles.divider} />
+      <div className={styles.cardBodyProjects}>
         <AvatarGroup team={team} truncate mobile />
         <div>
-          <ul className="tableItems">
+          <ul className={stylesTable.tableItems}>
             <Item number={project.incidents.length} type={"Incidencias"} />
             <Item number={project.incidents.length} type={"RFI"} />
             <Item number={project.incidents.length} type={"Tareas"} />

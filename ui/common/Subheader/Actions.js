@@ -6,12 +6,14 @@ import cardIcon from "@/public/card.svg";
 import listIcon from "@/public/list.svg";
 import mapIcon from "@/public/map.svg";
 
-import { useActions } from "../states/useActions";
+import { useActions } from "@/ui/states/useActions";
+
+import styles from "./subheader.module.css";
 
 const ActionButton = ({ icon, alt, disabled, onClick }) => {
   return (
     <li>
-      <button className="actionBtn" disabled={disabled} onClick={onClick}>
+      <button className={styles.actionBtn} disabled={disabled} onClick={onClick}>
         <Image src={icon} width={12} height={12} alt={alt} priority />
       </button>
     </li>
@@ -29,8 +31,8 @@ export const Actions = () => {
   const setActions = useActions((state) => state.setActions);
 
   return (
-    <div className="actions">
-      <ul className="actionsUL">
+    <div className={styles.actions}>
+      <ul className={styles.actionsUL}>
         {ACTIONS.map((a) => {
           const disabled = actions[a.name];
 

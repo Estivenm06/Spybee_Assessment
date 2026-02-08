@@ -5,8 +5,13 @@ import { useRef, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 
 import "mapbox-gl/dist/mapbox-gl.css";
+import { useMap } from "@/ui/states/useMap";
+
+import styles from "./map.module.css"
 
 export const Map = ({ projects }) => {
+  const coordenates = useMap((s) => s.coordenates);
+
   const mapRef = useRef();
   const mapContainerRef = useRef();
 
@@ -15,7 +20,7 @@ export const Map = ({ projects }) => {
     new mapboxgl.Popup({
       closeButton: false,
       closeOnClick: false,
-      className: "popup",
+      className: styles.popup,
     }),
   );
 
@@ -25,8 +30,8 @@ export const Map = ({ projects }) => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/satellite-streets-v12",
-      center: [-74.5, 40],
-      //   zoom: 9,
+      center: coordenates,
+      zoom: 4,
     });
 
     // Navigation Control of this map
@@ -40,7 +45,10 @@ export const Map = ({ projects }) => {
     projects.forEach((project) => {
       const coordenatesProject = [project.position.lng, project.position.lat];
 
-      const marker = new mapboxgl.Marker()
+      const markerElement = document.createElement("div")
+      markerElement.className = styles.marker;
+      
+      const marker = new mapboxgl.Marker(markerElement)
         .setLngLat(coordenatesProject)
         .addTo(map);
 
@@ -78,11 +86,11 @@ export const Map = ({ projects }) => {
       markersRef.current = [];
       mapRef.current.remove();
     };
-  }, [projects]);
+  }, [projects, coordenates]);
 
   return (
-    <section className="mapContainer" style={{ gridArea: "map" }}>
-      <div id="map-container" ref={mapContainerRef} className="mapboxgl" />
+    <section className={styles.mapContainer} style={{ gridArea: "map" }}>
+      <div id="map-container" ref={mapContainerRef} className={styles.mapboxgl} />
     </section>
   );
 };

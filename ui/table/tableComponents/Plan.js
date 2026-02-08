@@ -1,3 +1,5 @@
+import styles from "./plan.module.css";
+
 const PLAN_STYLES = {
   big: {
     label: "Avanzado",
@@ -17,7 +19,7 @@ const PlanPill = ({ plan, mobile }) => {
   const { label, bg } = plan;
   return (
       <p
-        className={mobile ? "planMobile" : "plan"}
+        className={mobile ? styles.planMobile : styles.plan}
         style={{ backgroundColor: bg }}
       >
         {label}

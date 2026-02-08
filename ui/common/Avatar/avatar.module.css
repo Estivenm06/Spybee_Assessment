@@ -1,0 +1,43 @@
+.avatarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: bolder;
+}
+
+.hexWrapper {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  padding: 5px;
+  box-sizing: border-box;
+  height: 2.2rem;
+  width: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hexWrapper:not(:first-child) {
+  margin-left: -6px;
+}
+
+.hexWrapper:nth-child(5n + 1) {
+  background: #fff5d7;
+}
+
+.hexWrapper:nth-child(5n + 2) {
+  background: #ffebaf;
+}
+.hexWrapper:nth-child(5n + 3) {
+  background: #fad75f;
+}
+.hexWrapper:nth-child(5n + 4) {
+  background: #fac30f;
+}
+.hexWrapper:nth-child(5n) {
+  background: #ebb400;
+}

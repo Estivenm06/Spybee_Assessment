@@ -1,11 +1,13 @@
 import Image from "next/image";
 
+import styles from "./summary.module.css";    
+
 export const HeaderBody = ({ srcIcon, label }) => {
   return (
-    <div className="summaryHeaderBody">
-      <Image src={srcIcon} alt="Icon" className="icon" />
-      <p className="HeaderBodyLargeText">{label}</p>
-      <p className="seeAllText">Ver todos</p>
+    <div className={styles.summaryHeaderBody}>
+      <Image src={srcIcon} alt="Icon" className={styles.icon} />
+      <p className={styles.HeaderBodyLargeText}>{label}</p>
+      <p className={styles.seeAllText}>Ver todos</p>
     </div>
   );
 };

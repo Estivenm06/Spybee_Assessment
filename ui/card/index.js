@@ -2,8 +2,11 @@
 
 import { usePagination } from "../states/usePagination";
 
-import { Pagination } from "../common/Pagination";
+import { Pagination } from "../common/Pagination/Pagination";
 import { CardComponent } from "./Card";
+
+import styles from "./card.module.css";
+import stylesPagination from "../common/Pagination/pagination.module.css";
 
 export const Card = ({ projects, mapActive }) => {
   const page = usePagination((state) => state.page);
@@ -20,15 +23,15 @@ export const Card = ({ projects, mapActive }) => {
   return (
     <section className="container" style={{ height: mapActive ? "270px" : "" }}>
       {/* Card Component */}
-      <div className="cardContainerComponent">
+      <div className={styles.cardContainerComponent}>
         {projectsToShow.map((project) => (
           <CardComponent project={project} key={project._id} />
         ))}
       </div>
 
       {/* Pagination */}
-      <div className="">
-        <ul className="paginationContainer">
+      <div>
+        <ul className={stylesPagination.paginationContainer}>
           {Array.from({ length: buttonToShow }).map((_, index) => (
             <Pagination
               key={index}

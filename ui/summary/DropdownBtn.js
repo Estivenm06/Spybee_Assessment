@@ -1,21 +1,23 @@
 import Image from "next/image"
 import PresentationIcon from "@/public/presentation-folder.svg";
 
+import styles from "./summary.module.css";
+
 export const DropDownBtn = ({classContainer, onClick, label}) => {
     return (
                   <div className={classContainer}>
-            <button className="summaryBtns" onClick={onClick}>{label}</button>
+            <button className={styles.summaryBtns} onClick={onClick}>{label}</button>
           </div>
     )
 }
 
 export const DropDown = ({ setDropdown, active }) => {
-    if(active) return <div className="summaryDropdownContainer"><DropDownBtn label={">"} classContainer={"arrowBtnContainer"} onClick={setDropdown} /></div>
+    if(active) return <div className={styles.summaryDropdownContainer}><DropDownBtn label={">"} classContainer={styles.arrowBtnContainer} onClick={setDropdown} /></div>
     return (
-        <div className="summaryDropdownContainer">
+        <div className={styles.summaryDropdownContainer}>
                   <DropDownBtn
                     label={"<"}
-                    classContainer={"arrowBtnContainer"}
+                    classContainer={styles.arrowBtnContainer}
                     onClick={setDropdown}
                   />
                   <DropDownBtn
@@ -23,10 +25,10 @@ export const DropDown = ({ setDropdown, active }) => {
                       <Image
                         src={PresentationIcon}
                         alt="PresentationIconIcon"
-                        className="presentationIcon"
+                        className={styles.presentationIcon}
                       />
                     }
-                    classContainer={"summaryDropdownBtnContainer"}
+                    classContainer={styles.summaryDropdownBtnContainer}
                     onClick={setDropdown}
                   />
               </div>
