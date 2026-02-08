@@ -7,7 +7,7 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useMap } from "@/ui/states/useMap";
 
-import styles from "./map.module.css"
+import styles from "./map.module.css";
 
 export const Map = ({ projects }) => {
   const coordenates = useMap((s) => s.coordenates);
@@ -20,24 +20,25 @@ export const Map = ({ projects }) => {
     new mapboxgl.Popup({
       closeButton: false,
       closeOnClick: false,
-      className: styles.popup,
+      className: "popup",
     }),
   );
 
   useEffect(() => {
     mapboxgl.accessToken =
       "pk.eyJ1IjoiZXN0aXZlbmFtZyIsImEiOiJjbWxhMXUzNmowOWZ3M2VweHUzM2puMDNnIn0.4IscbolQ66Z8fcEEIsvesA";
-    const map = new mapboxgl.Map({
+
+    mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/satellite-streets-v12",
       center: coordenates,
-      zoom: 4,
+      zoom: 7,
     });
 
     // Navigation Control of this map
-    map.addControl(new mapboxgl.NavigationControl());
+    mapRef.current.addControl(new mapboxgl.NavigationControl());
     // Geolocalication of this map
-    map.addControl(new mapboxgl.GeolocateControl());
+    mapRef.current.addControl(new mapboxgl.GeolocateControl());
 
     markersRef.current.forEach((m) => m.remove());
     markersRef.current = [];
@@ -45,21 +46,25 @@ export const Map = ({ projects }) => {
     projects.forEach((project) => {
       const coordenatesProject = [project.position.lng, project.position.lat];
 
-      const markerElement = document.createElement("div")
+      const markerElement = document.createElement("div");
       markerElement.className = styles.marker;
-      
+
       const marker = new mapboxgl.Marker(markerElement)
         .setLngLat(coordenatesProject)
-        .addTo(map);
+        .addTo(mapRef.current);
 
       const el = marker.getElement();
       el.style.cursor = "pointer";
 
-      el.addEventListener("click", () => {
+      el.addEventListener("mouseenter", () => {
         popupRef.current
           .setLngLat(coordenatesProject)
           .setHTML(`<strong>${project.title}</strong>`)
-          .addTo(map);
+          .addTo(mapRef.current);
+      });
+
+      el.addEventListener("mouseleave", () => {
+        popupRef.current.remove();
       });
 
       // el.addEventListener("click", () => {
@@ -70,7 +75,7 @@ export const Map = ({ projects }) => {
         popupRef.current
           .setLngLat(coordenatesProject)
           .setHTML(`<strong>${project.title}</strong>`)
-          .addTo(map);
+          .addTo(mapRef.current);
       });
 
       el.addEventListener("touchend", () => {
@@ -80,7 +85,6 @@ export const Map = ({ projects }) => {
       markersRef.current.push(marker);
     });
 
-    mapRef.current = map;
     return () => {
       markersRef.current.forEach((m) => m.remove());
       markersRef.current = [];
@@ -90,7 +94,11 @@ export const Map = ({ projects }) => {
 
   return (
     <section className={styles.mapContainer} style={{ gridArea: "map" }}>
-      <div id="map-container" ref={mapContainerRef} className={styles.mapboxgl} />
+      <div
+        id="map-container"
+        ref={mapContainerRef}
+        className={styles.mapboxgl}
+      />
     </section>
   );
 };

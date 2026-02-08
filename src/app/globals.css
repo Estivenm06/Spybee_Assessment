@@ -55,3 +55,19 @@ body {
     height: 0.2rem;
   }
 }
+
+.popup .mapboxgl-popup-content {
+  background: #181C11;
+  color: #fff;
+  height: 40px;
+  opacity: 0.8;
+}
+
+.popup .mapboxgl-popup-content strong {
+  font-size: 0.8rem;
+  font-weight: bolder;
+}
+
+.popup .mapboxgl-popup-tip {
+  border: none;
+}

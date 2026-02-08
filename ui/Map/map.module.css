@@ -16,23 +16,5 @@
   height: 50px;
   background-size: 100%;
   cursor: pointer;
-  position: relative;
 }
 
-.popup .mapboxgl-popup-content {
-  background: #181C11;
-  color: #fff;
-  margin-bottom: 1rem;
-  height: 40px;
-  opacity: 0.8;
-}
-
-.popup .mapboxgl-popup-content strong {
-  opacity: 1;
-  font-size: 0.8rem;
-  font-weight: bolder;
-}
-
-.popup .mapboxgl-popup-tip {
-  border: none;
-}
